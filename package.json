@@ -1,0 +1,41 @@
+{
+  "name": "hodman",
+  "version": "0.9.0",
+  "description": "Selenium object library including page-objects",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover -- _mocha --reporter spec",
+    "docs": "yuidoc ."
+  },
+  "homepage": "https://github.com/yahoo/hodman",
+  "bugs": "https://github.com/yahoo/hodman/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yahoo/hodman.git"
+  },
+  "keywords": [
+    "page-objects",
+    "testing",
+    "selenium",
+    "preceptor",
+    "hodman"
+  ],
+  "author": {
+    "name": "Marcel Erz",
+    "email": "erz@yahoo-inc.com"
+  },
+  "dependencies": {
+    "pngjs-image": "~0.9.3",
+    "preceptor-core": "~0.9.0",
+    "promise": "6.0.0",
+    "teddybear": "0.1.0",
+    "underscore": "1.7.0"
+  },
+  "devDependencies": {
+    "chai": "1.9.1",
+    "istanbul": "0.3.2",
+    "mocha": "1.21.4",
+    "yuidocjs": "0.3.50"
+  }
+}
