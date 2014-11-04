@@ -1,0 +1,3833 @@
+{
+    "project": {
+        "name": "hodman",
+        "description": "Selenium object library including page-objects",
+        "version": "0.9.1"
+    },
+    "files": {
+        "lib/driverAdapter/cabbieAdapter.js": {
+            "name": "lib/driverAdapter/cabbieAdapter.js",
+            "modules": {},
+            "classes": {
+                "CabbieAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/driverAdapter/driverAdapter.js": {
+            "name": "lib/driverAdapter/driverAdapter.js",
+            "modules": {},
+            "classes": {
+                "DriverAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObjects/baseObject.js": {
+            "name": "lib/pageObjects/baseObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObjects/genericPageObject.js": {
+            "name": "lib/pageObjects/genericPageObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObjects/pageObject.js": {
+            "name": "lib/pageObjects/pageObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObjects/panelObject.js": {
+            "name": "lib/pageObjects/panelObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObjects/viewObject.js": {
+            "name": "lib/pageObjects/viewObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/abstract/containerObject.js": {
+            "name": "lib/service/abstract/containerObject.js",
+            "modules": {},
+            "classes": {
+                "ServiceContainerObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/abstract/endPointObject.js": {
+            "name": "lib/service/abstract/endPointObject.js",
+            "modules": {},
+            "classes": {
+                "ServiceEndPointObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/abstract/object.js": {
+            "name": "lib/service/abstract/object.js",
+            "modules": {},
+            "classes": {
+                "ServiceBaseObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/abstract/serviceObject.js": {
+            "name": "lib/service/abstract/serviceObject.js",
+            "modules": {},
+            "classes": {
+                "ServiceObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/container.js": {
+            "name": "lib/service/container.js",
+            "modules": {},
+            "classes": {
+                "ServiceContainer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/endPoint.js": {
+            "name": "lib/service/endPoint.js",
+            "modules": {},
+            "classes": {
+                "ServiceEndPoint": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/entry.js": {
+            "name": "lib/service/entry.js",
+            "modules": {},
+            "classes": {
+                "ServiceEntry": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/list.js": {
+            "name": "lib/service/list.js",
+            "modules": {},
+            "classes": {
+                "ServiceList": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/lookup.js": {
+            "name": "lib/service/lookup.js",
+            "modules": {},
+            "classes": {
+                "ServiceLookup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/newEntry.js": {
+            "name": "lib/service/newEntry.js",
+            "modules": {},
+            "classes": {
+                "ServiceNewEntry": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/service/request.js": {
+            "name": "lib/service/request.js",
+            "modules": {},
+            "classes": {
+                "ServiceRequest": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/store/base.js": {
+            "name": "lib/store/base.js",
+            "modules": {},
+            "classes": {
+                "StoreBase": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/store/lookup.js": {
+            "name": "lib/store/lookup.js",
+            "modules": {},
+            "classes": {
+                "StoreLookup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/baseObject.js": {
+            "name": "lib/baseObject.js",
+            "modules": {},
+            "classes": {
+                "BaseObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/genericPageObject.js": {
+            "name": "lib/genericPageObject.js",
+            "modules": {},
+            "classes": {
+                "GenericPageObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/pageObject.js": {
+            "name": "lib/pageObject.js",
+            "modules": {},
+            "classes": {
+                "PageObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/panelObject.js": {
+            "name": "lib/panelObject.js",
+            "modules": {},
+            "classes": {
+                "PanelObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/viewObject.js": {
+            "name": "lib/viewObject.js",
+            "modules": {},
+            "classes": {
+                "ViewObject": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "CabbieAdapter": {
+            "name": "CabbieAdapter",
+            "shortname": "CabbieAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 8,
+            "extends": "DriverAdapter"
+        },
+        "DriverAdapter": {
+            "name": "DriverAdapter",
+            "shortname": "DriverAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 6,
+            "extends": "Base"
+        },
+        "BaseObject": {
+            "name": "BaseObject",
+            "shortname": "BaseObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/baseObject.js",
+            "line": 13,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Element"
+        },
+        "GenericPageObject": {
+            "name": "GenericPageObject",
+            "shortname": "GenericPageObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/genericPageObject.js",
+            "line": 8,
+            "extends": "PanelObject",
+            "itemtype": "property",
+            "type": "String"
+        },
+        "PageObject": {
+            "name": "PageObject",
+            "shortname": "PageObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/pageObject.js",
+            "line": 9,
+            "extends": "PanelObject"
+        },
+        "PanelObject": {
+            "name": "PanelObject",
+            "shortname": "PanelObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/panelObject.js",
+            "line": 6,
+            "extends": "ViewObject"
+        },
+        "ViewObject": {
+            "name": "ViewObject",
+            "shortname": "ViewObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/viewObject.js",
+            "line": 6,
+            "extends": "BaseObject"
+        },
+        "ServiceContainerObject": {
+            "name": "ServiceContainerObject",
+            "shortname": "ServiceContainerObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/abstract/containerObject.js",
+            "line": 3,
+            "extends": "ServiceEndPointObject"
+        },
+        "ServiceEndPointObject": {
+            "name": "ServiceEndPointObject",
+            "shortname": "ServiceEndPointObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/abstract/endPointObject.js",
+            "line": 3,
+            "extends": "ServiceObject"
+        },
+        "ServiceBaseObject": {
+            "name": "ServiceBaseObject",
+            "shortname": "ServiceBaseObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/abstract/object.js",
+            "line": 3,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "ServiceObject": {
+            "name": "ServiceObject",
+            "shortname": "ServiceObject",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/abstract/serviceObject.js",
+            "line": 3,
+            "extends": "ServiceBaseObject"
+        },
+        "ServiceContainer": {
+            "name": "ServiceContainer",
+            "shortname": "ServiceContainer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/container.js",
+            "line": 3,
+            "extends": "ServiceObject",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "ServiceEndPoint": {
+            "name": "ServiceEndPoint",
+            "shortname": "ServiceEndPoint",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/endPoint.js",
+            "line": 9,
+            "extends": "ServiceObject",
+            "itemtype": "property",
+            "type": "String"
+        },
+        "ServiceEntry": {
+            "name": "ServiceEntry",
+            "shortname": "ServiceEntry",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/entry.js",
+            "line": 4,
+            "extends": "ServiceContainerObject",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "ServiceList": {
+            "name": "ServiceList",
+            "shortname": "ServiceList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/list.js",
+            "line": 3,
+            "extends": "ServiceContainerObject",
+            "itemtype": "property",
+            "type": "ServiceEntry[]"
+        },
+        "ServiceLookup": {
+            "name": "ServiceLookup",
+            "shortname": "ServiceLookup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/lookup.js",
+            "line": 7,
+            "extends": "ServiceBaseObject",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "ServiceNewEntry": {
+            "name": "ServiceNewEntry",
+            "shortname": "ServiceNewEntry",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/newEntry.js",
+            "line": 4,
+            "extends": "ServiceEndPointObject",
+            "itemtype": "property",
+            "type": "Object"
+        },
+        "ServiceRequest": {
+            "name": "ServiceRequest",
+            "shortname": "ServiceRequest",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/service/request.js",
+            "line": 6,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Function"
+        },
+        "StoreBase": {
+            "name": "StoreBase",
+            "shortname": "StoreBase",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/store/base.js",
+            "line": 5,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "Object",
+            "params": [
+                {
+                    "name": "_store",
+                    "description": "",
+                    "type": "Store"
+                },
+                {
+                    "name": "_endPoint",
+                    "description": "",
+                    "type": "ServiceEndPoint"
+                }
+            ]
+        },
+        "StoreLookup": {
+            "name": "StoreLookup",
+            "shortname": "StoreLookup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "lib/store/lookup.js",
+            "line": 5,
+            "extends": "Base",
+            "itemtype": "property",
+            "type": "ServiceLookup"
+        }
+    },
+    "classitems": [
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 15,
+            "description": "Initializes the driver-adapter",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 25,
+            "description": "Get the driver",
+            "itemtype": "method",
+            "name": "getDriver",
+            "return": {
+                "description": "",
+                "type": "Browser"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 36,
+            "description": "Gets the current url of the session window",
+            "itemtype": "method",
+            "name": "getCurrentUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 46,
+            "description": "Gets the current page context",
+            "itemtype": "method",
+            "name": "getPageContext",
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 56,
+            "description": "Navigates to the supplied url",
+            "itemtype": "method",
+            "name": "navigateTo",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 66,
+            "description": "Number of milliseconds to wait before moving on",
+            "itemtype": "method",
+            "name": "sleep",
+            "params": [
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int"
+                }
+            ],
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 76,
+            "description": "Takes a screenshot of the current session window",
+            "itemtype": "method",
+            "name": "takeScreenshot",
+            "return": {
+                "description": "",
+                "type": "Buffer"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 87,
+            "description": "Gets the first element that applies to the supplied selector with the selector-type",
+            "itemtype": "method",
+            "name": "getElement",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "[selectorType='css",
+                    "description": "selector']",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 100,
+            "description": "Gets all elements that apply to the supplied selector with the selector-type",
+            "itemtype": "method",
+            "name": "getElements",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "[selectorType='css",
+                    "description": "selector']",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element[]"
+            },
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/cabbieAdapter.js",
+            "line": 115,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "CabbieAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 12,
+            "description": "Driver adapter constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "driver",
+                    "description": "",
+                    "type": "Browser"
+                }
+            ],
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 27,
+            "description": "Initializes the driver-adapter",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 37,
+            "description": "Get the driver",
+            "itemtype": "method",
+            "name": "getDriver",
+            "return": {
+                "description": "",
+                "type": "Browser"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 48,
+            "description": "Gets the current url of the session window",
+            "itemtype": "method",
+            "name": "getCurrentUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 58,
+            "description": "Gets the current page context",
+            "itemtype": "method",
+            "name": "getPageContext",
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 68,
+            "description": "Navigates to the supplied url",
+            "itemtype": "method",
+            "name": "navigateTo",
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 77,
+            "description": "Number of milliseconds to wait before moving on",
+            "itemtype": "method",
+            "name": "sleep",
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 86,
+            "description": "Takes a screenshot of the current session window",
+            "itemtype": "method",
+            "name": "takeScreenshot",
+            "return": {
+                "description": "",
+                "type": "Buffer"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 97,
+            "description": "Gets the first element that applies to the supplied selector with the selector-type",
+            "itemtype": "method",
+            "name": "getElement",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "[selectorType='css",
+                    "description": "selector']",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 110,
+            "description": "Gets all elements that apply to the supplied selector with the selector-type",
+            "itemtype": "method",
+            "name": "getElements",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "[selectorType='css",
+                    "description": "selector']",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element[]"
+            },
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/driverAdapter/driverAdapter.js",
+            "line": 125,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "DriverAdapter"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 23,
+            "description": "Base-Object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 44,
+            "description": "Initializes the base-object",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 54,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "itemtype": "method",
+            "name": "verifyIsLoaded",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 67,
+            "description": "Adds multiple load selectors, elements that should be selected when object is loaded",
+            "itemtype": "method",
+            "name": "addLoadSelectors",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "String[]"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 81,
+            "description": "Adds a single load selector, elements that should be selected when object is loaded",
+            "itemtype": "method",
+            "name": "addLoadSelector",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 97,
+            "description": "Get the page-object context",
+            "itemtype": "method",
+            "name": "getContext",
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 107,
+            "description": "Gets the web-driver adapter",
+            "itemtype": "method",
+            "name": "getAdapter",
+            "return": {
+                "description": "",
+                "type": "DriverAdapter"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 118,
+            "description": "Get a list of all selectors",
+            "itemtype": "method",
+            "name": "getSelectors",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 128,
+            "description": "Sets the selectors",
+            "itemtype": "method",
+            "name": "setSelectors",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 138,
+            "description": "Gets a specific selector by name",
+            "itemtype": "method",
+            "name": "getSelector",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 150,
+            "description": "Does it have a specific selector by name",
+            "itemtype": "method",
+            "name": "hasSelector",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 163,
+            "description": "Gets an element by a selector name",
+            "itemtype": "method",
+            "name": "getElement",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 177,
+            "description": "Checks if a selector name does exist in the selector list",
+            "itemtype": "method",
+            "name": "hasElement",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 191,
+            "description": "Waits for the element to appear on the page",
+            "itemtype": "method",
+            "name": "waitForElements",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "String[]"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "10000"
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "500"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 220,
+            "description": "Wait until a callback returns a truthy value",
+            "itemtype": "method",
+            "name": "waitUntil",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "10000"
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "500"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 256,
+            "description": "Get the coordinates and size of an element",
+            "itemtype": "method",
+            "name": "getFrame",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "Defaults to current context",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "`{x: int, y: int, width: int, height: int}`",
+                "type": "Object"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 280,
+            "description": "List of blackout coordinates for the current page-object",
+            "itemtype": "method",
+            "name": "blackOut",
+            "return": {
+                "description": "",
+                "type": "Object[]"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 290,
+            "description": "Captures the current page-object",
+            "itemtype": "method",
+            "name": "capture",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "Title of test or part of identifier",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "Identifier for screenshot file",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'1'"
+                },
+                {
+                    "name": "wait",
+                    "description": "Wait before a screenshot is taken",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "1000"
+                },
+                {
+                    "name": "additionalBlackOuts",
+                    "description": "Additional black-outs",
+                    "type": "Object[]",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 377,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 384,
+            "description": "Gets the path for the screenshot results",
+            "itemtype": "method",
+            "name": "getScreenshotPath",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 395,
+            "description": "Gets the screenshot prefix",
+            "itemtype": "method",
+            "name": "getScreenshotPrefix",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/baseObject.js",
+            "line": 406,
+            "description": "Gets the web-driver adapter",
+            "itemtype": "method",
+            "name": "getDriverAdapter",
+            "return": {
+                "description": "",
+                "type": "DriverAdapter"
+            },
+            "static": 1,
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/pageObjects/genericPageObject.js",
+            "line": 17,
+            "description": "Generic page-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "navigationUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "expectedUrl",
+                    "description": "",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "navigationUrl"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/pageObjects/genericPageObject.js",
+            "line": 35,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "itemtype": "method",
+            "name": "verifyIsLoaded",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "GenericPageObject"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/pageObjects/genericPageObject.js",
+            "line": 67,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/pageObjects/genericPageObject.js",
+            "line": 74,
+            "description": "Navigates to the given url and check the expected url",
+            "itemtype": "method",
+            "name": "navigate",
+            "params": [
+                {
+                    "name": "navigationUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "expectedUrl",
+                    "description": "",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "navigationUrl"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "GenericPageObject"
+            },
+            "static": 1,
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 15,
+            "description": "Page-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 27,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "itemtype": "method",
+            "name": "verifyIsLoaded",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "PageObject"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 55,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 63,
+            "description": "Base of page-object (optional)\n\nNote:\nconfig.baseUrl is used as default, but it can be overwritten with this value for each page",
+            "itemtype": "property",
+            "name": "BASE",
+            "type": "{string}",
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 75,
+            "description": "Url of page-object",
+            "itemtype": "property",
+            "name": "URL",
+            "type": "{string}",
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 84,
+            "description": "Expected url of page-object (optional)",
+            "itemtype": "property",
+            "name": "EXPECTED_URL",
+            "type": "{string}",
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 94,
+            "description": "Navigate the browser to the page-object",
+            "itemtype": "method",
+            "name": "navigate",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "PageObject"
+            },
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 110,
+            "description": "Get the base-url of the page-object",
+            "itemtype": "method",
+            "name": "getBaseUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 121,
+            "description": "Get the navigation-url for the page-object",
+            "itemtype": "method",
+            "name": "getNavigationUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 132,
+            "description": "Gets the url of the page-object",
+            "itemtype": "method",
+            "name": "getUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/pageObject.js",
+            "line": 143,
+            "description": "Gets the expected url",
+            "itemtype": "method",
+            "name": "getExpectedUrl",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "static": 1,
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObjects/panelObject.js",
+            "line": 12,
+            "description": "Panel-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "root",
+                    "description": "",
+                    "type": "Element",
+                    "optional": true
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/pageObjects/panelObject.js",
+            "line": 25,
+            "description": "Gets the root element of the panel-object",
+            "itemtype": "method",
+            "name": "_getPanelRootElement",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/pageObjects/panelObject.js",
+            "line": 65,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/pageObjects/panelObject.js",
+            "line": 72,
+            "description": "Selector for panel object",
+            "itemtype": "property",
+            "name": "SELECTOR",
+            "type": "{string}",
+            "static": 1,
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/pageObjects/viewObject.js",
+            "line": 15,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ViewObject"
+        },
+        {
+            "file": "lib/service/abstract/containerObject.js",
+            "line": 9,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "container",
+                            "description": "",
+                            "type": "ServiceContainer",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "ServiceContainerObject"
+        },
+        {
+            "file": "lib/service/abstract/containerObject.js",
+            "line": 19,
+            "description": "Gets the container object",
+            "itemtype": "method",
+            "name": "getContainer",
+            "return": {
+                "description": "",
+                "type": "ServiceContainer"
+            },
+            "class": "ServiceContainerObject"
+        },
+        {
+            "file": "lib/service/abstract/containerObject.js",
+            "line": 29,
+            "description": "Does this object have a container?",
+            "itemtype": "method",
+            "name": "hasContainer",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "ServiceContainerObject"
+        },
+        {
+            "file": "lib/service/abstract/containerObject.js",
+            "line": 40,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceContainerObject"
+        },
+        {
+            "file": "lib/service/abstract/endPointObject.js",
+            "line": 9,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "endPoint",
+                            "description": "",
+                            "type": "ServiceEndPoint"
+                        }
+                    ]
+                }
+            ],
+            "class": "ServiceEndPointObject"
+        },
+        {
+            "file": "lib/service/abstract/endPointObject.js",
+            "line": 19,
+            "description": "Gets the end-point object",
+            "itemtype": "method",
+            "name": "getEndPoint",
+            "return": {
+                "description": "",
+                "type": "ServiceEndPoint"
+            },
+            "class": "ServiceEndPointObject"
+        },
+        {
+            "file": "lib/service/abstract/endPointObject.js",
+            "line": 30,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceEndPointObject"
+        },
+        {
+            "file": "lib/service/abstract/object.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "request",
+                            "description": "",
+                            "type": "ServiceRequest"
+                        }
+                    ]
+                }
+            ],
+            "class": "ServiceBaseObject"
+        },
+        {
+            "file": "lib/service/abstract/object.js",
+            "line": 25,
+            "description": "Initializes the data-object",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "ServiceBaseObject"
+        },
+        {
+            "file": "lib/service/abstract/object.js",
+            "line": 35,
+            "description": "Gets all options supplied when created",
+            "itemtype": "method",
+            "name": "getOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "ServiceBaseObject"
+        },
+        {
+            "file": "lib/service/abstract/object.js",
+            "line": 45,
+            "description": "Gets the request object",
+            "itemtype": "method",
+            "name": "getRequest",
+            "return": {
+                "description": "",
+                "type": "ServiceRequest"
+            },
+            "class": "ServiceBaseObject"
+        },
+        {
+            "file": "lib/service/abstract/object.js",
+            "line": 56,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceBaseObject"
+        },
+        {
+            "file": "lib/service/abstract/serviceObject.js",
+            "line": 9,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "service",
+                            "description": "",
+                            "type": "ServiceLookup"
+                        }
+                    ]
+                }
+            ],
+            "class": "ServiceObject"
+        },
+        {
+            "file": "lib/service/abstract/serviceObject.js",
+            "line": 19,
+            "description": "Gets the service object",
+            "itemtype": "method",
+            "name": "getService",
+            "return": {
+                "description": "",
+                "type": "ServiceLookup"
+            },
+            "class": "ServiceObject"
+        },
+        {
+            "file": "lib/service/abstract/serviceObject.js",
+            "line": 30,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceObject"
+        },
+        {
+            "file": "lib/service/container.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "moduleList",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceContainer"
+        },
+        {
+            "file": "lib/service/container.js",
+            "line": 22,
+            "description": "Gets an item-list by moduleName",
+            "itemtype": "method",
+            "name": "getModuleList",
+            "params": [
+                {
+                    "name": "moduleName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceList"
+            },
+            "class": "ServiceContainer"
+        },
+        {
+            "file": "lib/service/container.js",
+            "line": 33,
+            "description": "Does the container have a module?",
+            "itemtype": "method",
+            "name": "hasModuleList",
+            "params": [
+                {
+                    "name": "moduleName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "ServiceContainer"
+        },
+        {
+            "file": "lib/service/container.js",
+            "line": 45,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceContainer"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 18,
+            "description": "Gets the singular module identifier",
+            "itemtype": "method",
+            "name": "getSingularModuleName",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 28,
+            "description": "Gets the plural module identifier",
+            "itemtype": "method",
+            "name": "getPluralModuleName",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 39,
+            "description": "Gets a list of fields available",
+            "itemtype": "method",
+            "name": "getFields",
+            "return": {
+                "description": "",
+                "type": "String[]"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 49,
+            "description": "Checks if a field is available",
+            "itemtype": "method",
+            "name": "hasField",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 60,
+            "description": "Gets details field information",
+            "itemtype": "method",
+            "name": "getFieldInfo",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 77,
+            "description": "Retrieves a new entry object",
+            "itemtype": "method",
+            "name": "newEntry",
+            "params": [
+                {
+                    "name": "entry",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceEntry"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 89,
+            "description": "Retrieves a list object",
+            "itemtype": "method",
+            "name": "loadList",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "ServiceEntry[]"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceList"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 105,
+            "description": "Retrieves an entry object",
+            "itemtype": "method",
+            "name": "loadEntry",
+            "params": [
+                {
+                    "name": "entry",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceEntry"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 122,
+            "description": "Gets the options for children",
+            "itemtype": "method",
+            "name": "_getChildOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 138,
+            "description": "Removes an item",
+            "itemtype": "method",
+            "name": "removeItem",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "With {string} id",
+                "type": "Promise"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 152,
+            "description": "Gets a list of items",
+            "itemtype": "method",
+            "name": "getAllItems",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "With {ServiceList}",
+                "type": "Promise"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 184,
+            "description": "Gets an item",
+            "itemtype": "method",
+            "name": "getItem",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "With {ServiceEntry}",
+                "type": "Promise"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 203,
+            "description": "Queries a list of items",
+            "itemtype": "method",
+            "name": "queryItems",
+            "params": [
+                {
+                    "name": "query",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "With {ServiceList}",
+                "type": "Promise"
+            },
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/endPoint.js",
+            "line": 237,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceEndPoint"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "entry",
+                    "description": "Data of entry",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 23,
+            "description": "Gets a value of a field",
+            "itemtype": "method",
+            "name": "getValue",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "directAccess",
+                    "description": "",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 61,
+            "description": "Sets a value of a field",
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 76,
+            "description": "Sets a range of values",
+            "itemtype": "method",
+            "name": "setFields",
+            "params": [
+                {
+                    "name": "values",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 87,
+            "description": "Saves the entry",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "With {ServiceEntry}",
+                "type": "Promise"
+            },
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/entry.js",
+            "line": 112,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceEntry"
+        },
+        {
+            "file": "lib/service/list.js",
+            "line": 11,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "ServiceEntry[]"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceList"
+        },
+        {
+            "file": "lib/service/list.js",
+            "line": 24,
+            "description": "Gets all items",
+            "itemtype": "method",
+            "name": "getItems",
+            "return": {
+                "description": "",
+                "type": "ServiceEntry[]"
+            },
+            "class": "ServiceList"
+        },
+        {
+            "file": "lib/service/list.js",
+            "line": 34,
+            "description": "Gets a specific item from the list",
+            "itemtype": "method",
+            "name": "getItem",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceEntry"
+            },
+            "class": "ServiceList"
+        },
+        {
+            "file": "lib/service/list.js",
+            "line": 54,
+            "description": "Checks if an item exists",
+            "itemtype": "method",
+            "name": "hasItem",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "ServiceList"
+        },
+        {
+            "file": "lib/service/list.js",
+            "line": 66,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceList"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 15,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "baseUrl",
+                            "description": "",
+                            "type": "String"
+                        },
+                        {
+                            "name": "request",
+                            "description": "",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 29,
+            "description": "Initialize",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 39,
+            "description": "Register a service module",
+            "itemtype": "method",
+            "name": "registerModule",
+            "params": [
+                {
+                    "name": "Class",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 64,
+            "description": "Looks-up a service module",
+            "itemtype": "method",
+            "name": "lookupModule",
+            "params": [
+                {
+                    "name": "moduleName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 75,
+            "description": "Retrieves a module the end-point",
+            "itemtype": "method",
+            "name": "getEndPoint",
+            "params": [
+                {
+                    "name": "moduleName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceEndPoint"
+            },
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 92,
+            "description": "Get options for children",
+            "itemtype": "method",
+            "name": "_getChildOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 106,
+            "description": "Parses data and returns a container object",
+            "itemtype": "method",
+            "name": "parse",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "ServiceContainer"
+            },
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/lookup.js",
+            "line": 153,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceLookup"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "entry",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 25,
+            "description": "Gets a value of a field",
+            "itemtype": "method",
+            "name": "getValue",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 39,
+            "description": "Sets a value for a field",
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "field",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 54,
+            "description": "Sets a range of values",
+            "itemtype": "method",
+            "name": "setFields",
+            "params": [
+                {
+                    "name": "values",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 65,
+            "description": "Creates the entry",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "With {ServiceEntry}",
+                "type": "Promise"
+            },
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/newEntry.js",
+            "line": 90,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceNewEntry"
+        },
+        {
+            "file": "lib/service/request.js",
+            "line": 15,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "request",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "baseUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "ServiceRequest"
+        },
+        {
+            "file": "lib/service/request.js",
+            "line": 30,
+            "description": "Initializes the data-object",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "ServiceRequest"
+        },
+        {
+            "file": "lib/service/request.js",
+            "line": 40,
+            "description": "Sends a request",
+            "itemtype": "method",
+            "name": "sendRequest",
+            "params": [
+                {
+                    "name": "method",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "*",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "ServiceRequest"
+        },
+        {
+            "file": "lib/service/request.js",
+            "line": 75,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "ServiceRequest"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 15,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "store",
+                    "description": "",
+                    "type": "Store"
+                },
+                {
+                    "name": "endPoint",
+                    "description": "",
+                    "type": "ServiceEndPoint"
+                }
+            ],
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 29,
+            "description": "Identifier prefix",
+            "itemtype": "property",
+            "name": "prefix",
+            "type": "{string}",
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 38,
+            "description": "Gets the cache object",
+            "itemtype": "method",
+            "name": "getCache",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 48,
+            "description": "Gets the store-lookup object",
+            "itemtype": "method",
+            "name": "getStoreLookup",
+            "return": {
+                "description": "",
+                "type": "Store"
+            },
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 58,
+            "description": "Gets the end-point object",
+            "itemtype": "method",
+            "name": "getEndPoint",
+            "return": {
+                "description": "",
+                "type": "ServiceEndPoint"
+            },
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 69,
+            "description": "Loads or creates a store object",
+            "itemtype": "method",
+            "name": "retrieve",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "With {ServiceEntry}",
+                "type": "Promise"
+            },
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 88,
+            "description": "Generates a unique identifier",
+            "itemtype": "method",
+            "name": "generateUniqueIdentifier",
+            "params": [
+                {
+                    "name": "prefix",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 99,
+            "description": "Deletes all records stored",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 119,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/base.js",
+            "line": 126,
+            "itemtype": "property",
+            "name": "keys",
+            "type": "{string[]}",
+            "static": 1,
+            "class": "StoreBase"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 15,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "service",
+                    "description": "",
+                    "type": "ServiceLookup"
+                }
+            ],
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 30,
+            "description": "Initializes the store",
+            "itemtype": "method",
+            "name": "initialize",
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 40,
+            "description": "Gets the api service object",
+            "itemtype": "method",
+            "name": "getService",
+            "return": {
+                "description": "",
+                "type": "ServiceLookup"
+            },
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 50,
+            "description": "Registers a store",
+            "itemtype": "method",
+            "name": "registerStore",
+            "params": [
+                {
+                    "name": "Class",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 66,
+            "description": "Lookup a store",
+            "itemtype": "method",
+            "name": "lookupStore",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Function"
+            },
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 77,
+            "description": "Retrieves a store",
+            "itemtype": "method",
+            "name": "getStore",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "StoreBase"
+            },
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 107,
+            "description": "Deletes all records stored",
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/store/lookup.js",
+            "line": 124,
+            "itemtype": "property",
+            "name": "TYPE",
+            "type": "{string}",
+            "static": 1,
+            "class": "StoreLookup"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 23,
+            "description": "Base-Object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 44,
+            "description": "Initializes the base-object",
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 52,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 64,
+            "description": "Adds multiple load selectors, elements that should be selected when object is loaded",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "String[]"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 77,
+            "description": "Adds a single load selector, elements that should be selected when object is loaded",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 92,
+            "description": "Get the page-object context",
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 101,
+            "description": "Gets the web-driver adapter",
+            "return": {
+                "description": "",
+                "type": "DriverAdapter"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 111,
+            "description": "Get a list of all selectors",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 120,
+            "description": "Sets the selectors",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 129,
+            "description": "Gets a specific selector by name",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 140,
+            "description": "Does it have a specific selector by name",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 152,
+            "description": "Gets an element by a selector name",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 165,
+            "description": "Checks if a selector name does exist in the selector list",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 178,
+            "description": "Waits for the element to appear on the page",
+            "params": [
+                {
+                    "name": "selectors",
+                    "description": "",
+                    "type": "String[]"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "10000"
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "500"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 206,
+            "description": "Wait until a callback returns a truthy value",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "10000"
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "500"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "BaseObject"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 241,
+            "description": "Get the coordinates and size of an element",
+            "params": [
+                {
+                    "name": "selectorName",
+                    "description": "Defaults to current context",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "`{x: int, y: int, width: int, height: int}`",
+                "type": "Object"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 264,
+            "description": "List of blackout coordinates for the current page-object",
+            "return": {
+                "description": "",
+                "type": "Object[]"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 273,
+            "description": "Captures the current page-object",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "Title of test or part of identifier",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "Identifier for screenshot file",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'1'"
+                },
+                {
+                    "name": "wait",
+                    "description": "Wait before a screenshot is taken",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "1000"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 349,
+            "var": "string",
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 354,
+            "description": "Gets the path for the screenshot results",
+            "var": "{string}",
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 363,
+            "description": "Gets the screenshot prefix",
+            "var": "{string}",
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/baseObject.js",
+            "line": 372,
+            "description": "Gets the web-driver adapter",
+            "return": {
+                "description": "",
+                "type": "DriverAdapter"
+            },
+            "class": "BaseObject"
+        },
+        {
+            "file": "lib/genericPageObject.js",
+            "line": 17,
+            "description": "Generic page-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "navigationUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "expectedUrl",
+                    "description": "",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "navigationUrl"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/genericPageObject.js",
+            "line": 35,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "GenericPageObject"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/genericPageObject.js",
+            "line": 66,
+            "var": "string",
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/genericPageObject.js",
+            "line": 71,
+            "description": "Navigates to the given url and check the expected url",
+            "params": [
+                {
+                    "name": "navigationUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "expectedUrl",
+                    "description": "",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "navigationUrl"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "GenericPageObject"
+            },
+            "class": "GenericPageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 15,
+            "description": "Page-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 27,
+            "description": "Verifies that the page-object and its sub-dom-elements are loaded as expected",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "PageObject"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 54,
+            "var": "{string}",
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 60,
+            "description": "Base of page-object (optional)\n\nNote:\nconfig.baseUrl is used as default, but it can be overwritten with this value for each page",
+            "var": "{string}",
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 70,
+            "description": "Url of page-object",
+            "var": "{string}",
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 77,
+            "description": "Expected url of page-object (optional)",
+            "var": "{string}",
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 85,
+            "description": "Navigate the browser to the page-object",
+            "params": [
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "PageObject"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 99,
+            "description": "Get the base-url of the page-object",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 108,
+            "description": "Get the navigation-url for the page-object",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 117,
+            "description": "Gets the url of the page-object",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/pageObject.js",
+            "line": 126,
+            "description": "Gets the expected url",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "PageObject"
+        },
+        {
+            "file": "lib/panelObject.js",
+            "line": 12,
+            "description": "Panel-object constructor",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "root",
+                    "description": "",
+                    "type": "Element",
+                    "optional": true
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/panelObject.js",
+            "line": 25,
+            "description": "Gets the root element of the panel-object",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "timeOut",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                },
+                {
+                    "name": "waitInMs",
+                    "description": "",
+                    "type": "Int",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Element"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/panelObject.js",
+            "line": 64,
+            "var": "{string}",
+            "class": "PanelObject"
+        },
+        {
+            "file": "lib/panelObject.js",
+            "line": 69,
+            "description": "Selector for panel",
+            "var": "{string}",
+            "class": "PanelObject"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:52"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:64"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:77"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:92"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:101"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:111"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:129"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:140"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:152"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:165"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:178"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:206"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:241"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:264"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/baseObject.js:273"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/baseObject.js:349"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/baseObject.js:354"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/baseObject.js:363"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/genericPageObject.js:35"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/genericPageObject.js:66"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/genericPageObject.js:71"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:27"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/pageObject.js:54"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/pageObject.js:60"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/pageObject.js:70"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/pageObject.js:77"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:85"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:99"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:108"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:117"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/pageObject.js:126"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " lib/panelObject.js:25"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/panelObject.js:64"
+        },
+        {
+            "message": "unknown tag: var",
+            "line": " lib/panelObject.js:69"
+        },
+        {
+            "message": "Missing item type\nDriver adapter constructor",
+            "line": " lib/driverAdapter/driverAdapter.js:12"
+        },
+        {
+            "message": "Missing item type\nBase-Object constructor",
+            "line": " lib/pageObjects/baseObject.js:23"
+        },
+        {
+            "message": "Missing item type\nGeneric page-object constructor",
+            "line": " lib/pageObjects/genericPageObject.js:17"
+        },
+        {
+            "message": "Missing item type\nPage-object constructor",
+            "line": " lib/pageObjects/pageObject.js:15"
+        },
+        {
+            "message": "Missing item type\nPanel-object constructor",
+            "line": " lib/pageObjects/panelObject.js:12"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/abstract/containerObject.js:9"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/abstract/endPointObject.js:9"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/abstract/object.js:11"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/abstract/serviceObject.js:9"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/container.js:11"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/entry.js:12"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/list.js:11"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/lookup.js:15"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/newEntry.js:12"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/service/request.js:15"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/store/base.js:15"
+        },
+        {
+            "message": "Missing item type\nDeletes all records stored",
+            "line": " lib/store/base.js:99"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/store/lookup.js:15"
+        },
+        {
+            "message": "Missing item type\nDeletes all records stored",
+            "line": " lib/store/lookup.js:107"
+        },
+        {
+            "message": "Missing item type\nBase-Object constructor",
+            "line": " lib/baseObject.js:23"
+        },
+        {
+            "message": "Missing item type\nInitializes the base-object",
+            "line": " lib/baseObject.js:44"
+        },
+        {
+            "message": "Missing item type\nVerifies that the page-object and its sub-dom-elements are loaded as expected",
+            "line": " lib/baseObject.js:52"
+        },
+        {
+            "message": "Missing item type\nAdds multiple load selectors, elements that should be selected when object is loaded",
+            "line": " lib/baseObject.js:64"
+        },
+        {
+            "message": "Missing item type\nAdds a single load selector, elements that should be selected when object is loaded",
+            "line": " lib/baseObject.js:77"
+        },
+        {
+            "message": "Missing item type\nGet the page-object context",
+            "line": " lib/baseObject.js:92"
+        },
+        {
+            "message": "Missing item type\nGets the web-driver adapter",
+            "line": " lib/baseObject.js:101"
+        },
+        {
+            "message": "Missing item type\nGet a list of all selectors",
+            "line": " lib/baseObject.js:111"
+        },
+        {
+            "message": "Missing item type\nSets the selectors",
+            "line": " lib/baseObject.js:120"
+        },
+        {
+            "message": "Missing item type\nGets a specific selector by name",
+            "line": " lib/baseObject.js:129"
+        },
+        {
+            "message": "Missing item type\nDoes it have a specific selector by name",
+            "line": " lib/baseObject.js:140"
+        },
+        {
+            "message": "Missing item type\nGets an element by a selector name",
+            "line": " lib/baseObject.js:152"
+        },
+        {
+            "message": "Missing item type\nChecks if a selector name does exist in the selector list",
+            "line": " lib/baseObject.js:165"
+        },
+        {
+            "message": "Missing item type\nWaits for the element to appear on the page",
+            "line": " lib/baseObject.js:178"
+        },
+        {
+            "message": "Missing item type\nWait until a callback returns a truthy value",
+            "line": " lib/baseObject.js:206"
+        },
+        {
+            "message": "Missing item type\nGet the coordinates and size of an element",
+            "line": " lib/baseObject.js:241"
+        },
+        {
+            "message": "Missing item type\nList of blackout coordinates for the current page-object",
+            "line": " lib/baseObject.js:264"
+        },
+        {
+            "message": "Missing item type\nCaptures the current page-object",
+            "line": " lib/baseObject.js:273"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/baseObject.js:349"
+        },
+        {
+            "message": "Missing item type\nGets the path for the screenshot results",
+            "line": " lib/baseObject.js:354"
+        },
+        {
+            "message": "Missing item type\nGets the screenshot prefix",
+            "line": " lib/baseObject.js:363"
+        },
+        {
+            "message": "Missing item type\nGets the web-driver adapter",
+            "line": " lib/baseObject.js:372"
+        },
+        {
+            "message": "Missing item type\nGeneric page-object constructor",
+            "line": " lib/genericPageObject.js:17"
+        },
+        {
+            "message": "Missing item type\nVerifies that the page-object and its sub-dom-elements are loaded as expected",
+            "line": " lib/genericPageObject.js:35"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/genericPageObject.js:66"
+        },
+        {
+            "message": "Missing item type\nNavigates to the given url and check the expected url",
+            "line": " lib/genericPageObject.js:71"
+        },
+        {
+            "message": "Missing item type\nPage-object constructor",
+            "line": " lib/pageObject.js:15"
+        },
+        {
+            "message": "Missing item type\nVerifies that the page-object and its sub-dom-elements are loaded as expected",
+            "line": " lib/pageObject.js:27"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/pageObject.js:54"
+        },
+        {
+            "message": "Missing item type\nBase of page-object (optional)\n\nNote:\nconfig.baseUrl is used as default, but it can be overwritten with this value for each page",
+            "line": " lib/pageObject.js:60"
+        },
+        {
+            "message": "Missing item type\nUrl of page-object",
+            "line": " lib/pageObject.js:70"
+        },
+        {
+            "message": "Missing item type\nExpected url of page-object (optional)",
+            "line": " lib/pageObject.js:77"
+        },
+        {
+            "message": "Missing item type\nNavigate the browser to the page-object",
+            "line": " lib/pageObject.js:85"
+        },
+        {
+            "message": "Missing item type\nGet the base-url of the page-object",
+            "line": " lib/pageObject.js:99"
+        },
+        {
+            "message": "Missing item type\nGet the navigation-url for the page-object",
+            "line": " lib/pageObject.js:108"
+        },
+        {
+            "message": "Missing item type\nGets the url of the page-object",
+            "line": " lib/pageObject.js:117"
+        },
+        {
+            "message": "Missing item type\nGets the expected url",
+            "line": " lib/pageObject.js:126"
+        },
+        {
+            "message": "Missing item type\nPanel-object constructor",
+            "line": " lib/panelObject.js:12"
+        },
+        {
+            "message": "Missing item type\nGets the root element of the panel-object",
+            "line": " lib/panelObject.js:25"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib/panelObject.js:64"
+        },
+        {
+            "message": "Missing item type\nSelector for panel",
+            "line": " lib/panelObject.js:69"
+        }
+    ]
+}
