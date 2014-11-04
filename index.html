@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Hodman : Selenium object library ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Hodman</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/yahoo/hodman">View on GitHub</a>
+
+          <h1 id="project_title">Hodman</h1>
+          <h2 id="project_tagline">Selenium object library </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/yahoo/hodman/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/yahoo/hodman/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="hodman" class="anchor" href="#hodman" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hodman</h1>
+
+<p>Selenium object library including page-objects.</p>
+
+<p><a href="http://travis-ci.org/yahoo/hodman"><img src="https://secure.travis-ci.org/yahoo/hodman.png" alt="Build Status"></a>
+<a href="http://badge.fury.io/js/hodman"><img src="https://badge.fury.io/js/hodman.svg" alt="npm version"></a></p>
+
+<p><a href="https://nodei.co/npm/hodman/"><img src="https://nodei.co/npm/hodman.png?downloads=true" alt="NPM"></a></p>
+
+<p><strong>Table of Contents</strong></p>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li>
+<a href="#usage">Usage</a>
+
+<ul>
+<li>
+<a href="#page-objects">Page-Objects</a>
+
+<ul>
+<li><a href="#baseobject">BaseObject</a></li>
+<li><a href="#viewobject">ViewObject</a></li>
+<li><a href="#panelobject">PanelObject</a></li>
+<li><a href="#pageobject">PageObject</a></li>
+<li><a href="#genericpageobject">GenericPageObject</a></li>
+</ul>
+</li>
+<li><a href="#driver-adapter">Driver-Adapter</a></li>
+<li><a href="#sychronous-and-asynchronous">Sychronous and asynchronous</a></li>
+</ul>
+</li>
+<li><a href="#api-documentation">API-Documentation</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#project-naming">Project Naming</a></li>
+<li><a href="#third-party-libraries">Third-party libraries</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install this module with the following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm install hodman
+</pre></div>
+
+<p>Add the module to your <code>package.json</code> dependencies:</p>
+
+<div class="highlight highlight-shell"><pre>npm install --save hodman
+</pre></div>
+
+<p>Add the module to your <code>package.json</code> dev-dependencies:</p>
+
+<div class="highlight highlight-shell"><pre>npm install --save-dev hodman
+</pre></div>
+
+<p>Require the module in your source-code:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>The following example sets-up the page-object system and creates an example page-object for a login page.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">cabbie</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cabbie'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+
+<span class="c1">// Initialize the selenium client. In this case, it is "cabbie". </span>
+<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="nx">cabbie</span><span class="p">(</span><span class="s1">'http://127.0.0.1:4444/wd/hub'</span><span class="p">,</span> 
+                    <span class="p">{</span> <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span> <span class="p">},</span>  <span class="c1">// With firefox</span>
+                    <span class="p">{</span> <span class="nx">mode</span><span class="o">:</span> <span class="nx">cabbie</span><span class="p">.</span><span class="nx">MODE_SYNC</span> <span class="p">});</span> <span class="c1">// In sync-mode</span>
+
+<span class="c1">// Create driver-adapter for the page-objects to have a consistent interface </span>
+<span class="c1">// for all supported selenium clients.</span>
+<span class="kd">var</span> <span class="nx">driverAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">driverAdapters</span><span class="p">.</span><span class="nx">Cabbie</span><span class="p">(</span><span class="nx">driver</span><span class="p">);</span>
+
+<span class="c1">// Assign the driver-adapter to the page-object sub-system</span>
+<span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">DRIVER_ADAPTER</span> <span class="o">=</span> <span class="nx">driverAdapter</span><span class="p">;</span>
+
+<span class="c1">// Setup path for screenshots</span>
+<span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">SCREENSHOT_PATH</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/screens"</span><span class="p">;</span>
+
+<span class="c1">// Use "preceptor" to remove all of the configuration above from your code </span>
+<span class="c1">// and make this transparent for any testing environment.</span>
+
+<span class="c1">// Create a page-object...</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @class LoginPage</span>
+<span class="cm"> * @extends PageObject</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">LoginPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+
+    <span class="c1">// Constructor (optional)</span>
+    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="c1">// ... Some setup</span>
+
+        <span class="c1">// Overwrite constructor if you need additional parameters.</span>
+        <span class="c1">// You can use the initialize method for initialization purposes. </span>
+        <span class="c1">// No need to overwrite the constructor for that.</span>
+
+        <span class="c1">// Call parent constructor after general setup. </span>
+        <span class="c1">// The initialize method will be called in parent constructor.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> 
+
+        <span class="c1">// ... Possibly something else</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Prototype</span>
+    <span class="p">{</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+            <span class="c1">// Make sure to always call the parent method even if there is non at the time </span>
+            <span class="c1">// of creation. The sub-system will take care of it and create an empty </span>
+            <span class="c1">// function if needed. This will make sure that this page-object will </span>
+            <span class="c1">// pick up any new futures which require initialization.</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> 
+
+            <span class="c1">// Setup selectors (css-selectors) and assign them a name that should be used </span>
+            <span class="c1">// throughout the page-object.</span>
+
+            <span class="c1">// Should the selector change in the future, then only this block needs to change.</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+                <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span>
+                <span class="s2">"passwordInput"</span><span class="o">:</span> <span class="s2">".login-password"</span><span class="p">,</span>
+                <span class="s2">"rememberMeCheck"</span><span class="o">:</span> <span class="s2">".remember-me"</span>
+            <span class="p">});</span>
+
+            <span class="c1">// Any page-object can have load-selectors which are selectors for element that </span>
+            <span class="c1">// are needed for the page to be "loaded". Should the Page-object will check </span>
+            <span class="c1">// for these elements to appear on the page before claiming success on</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">addLoadSelectors</span><span class="p">([</span><span class="s2">"usernameInput"</span><span class="p">]);</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * Logs the user in</span>
+<span class="cm">         *</span>
+<span class="cm">         * @param {string} username</span>
+<span class="cm">         * @param {string} password</span>
+<span class="cm">         * @param {boolean} [rememberMe=false]</span>
+<span class="cm">         * @return {LoginPage}</span>
+<span class="cm">         */</span>
+        <span class="nx">login</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">rememberMe</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// Chainable call to set username and password</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">setUsername</span><span class="p">(</span><span class="nx">username</span><span class="p">).</span><span class="nx">setPassword</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+
+            <span class="c1">// Try to limit the use of control-structures as much as possible since they </span>
+            <span class="c1">// add complexity to the page-objects (and tests). Make it as linear as possible.</span>
+            <span class="c1">// You don't really want to start testing the test system.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">rememberMe</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">checkRememberMe</span><span class="p">();</span>
+            <span class="p">}</span>
+
+            <span class="c1">// Return the page-object itself if the method doesn't return anything </span>
+            <span class="c1">// to make the function chainable</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * Sets a username</span>
+<span class="cm">         *</span>
+<span class="cm">         * @param {string} username</span>
+<span class="cm">         * @return {LoginPage} </span>
+<span class="cm">         */</span>
+        <span class="nx">setUsername</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="c1">// Clear any username already set</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">clearUsername</span><span class="p">();</span>
+
+            <span class="c1">// Set the value for username</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'usernameInput'</span><span class="p">).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="nx">username</span><span class="p">);</span>
+
+            <span class="c1">// Again, return "this"</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * Clears any username entered</span>
+<span class="cm">         *</span>
+<span class="cm">         * @return {LoginPage}</span>
+<span class="cm">         */</span>
+        <span class="nx">clearUsername</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'usernameInput'</span><span class="p">).</span><span class="nx">clear</span><span class="p">();</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+        <span class="p">},</span>
+
+        <span class="c1">// ... some other methods</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Static - Copied to the constructor</span>
+    <span class="p">{</span>
+
+        <span class="c1">// Define static methods here. These methods will be assigned to the constructor and </span>
+        <span class="c1">// therefore can be called then directly on the constructor itself.</span>
+        <span class="c1">// </span>
+        <span class="c1">// For example:</span>
+        <span class="c1">// LoginPage.navigateTo();</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Hodman currently supplied two types of objects:</p>
+
+<ul>
+<li>Page-Objects - Objects that abstract the implementation details of websites</li>
+<li>Driver Adapters - Adapters for the page-objects to support multiple Selenium client libraries</li>
+</ul>
+
+<p>Objects for RESTful API access and storage objects for reusable models is still a WIP.</p>
+
+<h3>
+<a id="page-objects" class="anchor" href="#page-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Page-Objects</h3>
+
+<p>Selenium gives low-level access to DOM elements, but that means that with any code-change on the front-end will trigger changes to the tests or the test-code. Already with a couple of tests, this will soon become very work intensive as front-end development in general is moving fast. Maintaining tests this way will get very soon insurmountable.</p>
+
+<p>Page-objects were defined to get around this problem, and is a design-pattern to abstract the low-level implementation of a website into objects exposing services (not DOM-elements). The tests then will only use these services exposed by the page-object instead of using low-level access to the DOM. Should the DOM structure change, then only the page-object needs to be modified and all the tests should run without a problem thereafter. This is the ideal case, and there are many rules you can abide-to to make this a reality.
+This pattern was introduced by Martin Fowler quite a while ago, and the Selenium project picked it up to be used with Selenium tests. See the following urls for more information on this topic:</p>
+
+<ul>
+<li><a href="http://martinfowler.com/eaaDev/WindowDriver.html">Autonomous View / Window Driver - Martin Fowler</a></li>
+<li><a href="http://martinfowler.com/bliki/PageObject.html">Page-Object Pattern - Martin Fowler</a></li>
+<li><a href="https://code.google.com/p/selenium/wiki/PageObjects">Page-Object Pattern - Selenium Project</a></li>
+</ul>
+
+<p>The page-object pattern was defined at a time where static websites were standard. Nowadays, websites are much more complex than they used to be, especially with the advent of Single-page applications. In these websites, whole DOM trees are representing one component (i.e. autocomplete) instead of a single element. Also, alerts, prompts, and confirms are not used anymore and might be represented as "Overlays" in the DOM of a page, composed of multiple DOM elements. There are many more examples like these, but all of them have one thing in common: they use multiple DOM elements to represent one "component" or "view".
+For these more modern application, this module implements additional "page-objects".</p>
+
+<h4>
+<a id="term" class="anchor" href="#term" aria-hidden="true"><span class="octicon octicon-link"></span></a>Term</h4>
+
+<p>The term page-object does not anymore really mean a whole page but rather the pattern itself. I will refer to <code>PageObject</code> for a page-object of a whole page.</p>
+
+<h4>
+<a id="objects" class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objects</h4>
+
+<p>All objects use <code>preceptor-core</code>'s <code>Base</code>-object to create inheritance. See the <code>preceptor-core</code> module page for more information.</p>
+
+<h4>
+<a id="context-and-scope" class="anchor" href="#context-and-scope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Context and scope</h4>
+
+<p>Every page-object has its own scope which might be the whole document, or it might be a specific DOM-element with its sub DOM-elements.</p>
+
+<p>There are two methods to access the context and scope of a page-object (see API documentation for more information):</p>
+
+<ul>
+<li>
+<code>getContext</code> - Gets the context of the current page-object</li>
+<li>
+<code>getAdapter</code> - Gets the driver-adapter for low-level Selenium access</li>
+</ul>
+
+<h4>
+<a id="baseobject" class="anchor" href="#baseobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>BaseObject</h4>
+
+<p>This page-object is the base-class of all page-objects and should not be used directly. However, this object implements a whole suite of methods for all following page-objects. </p>
+
+<p>These methods have the following themes:</p>
+
+<ul>
+<li>Selector management</li>
+<li>Loaders</li>
+<li>Client accessors</li>
+<li>Screenshot management</li>
+<li>Utility</li>
+</ul>
+
+<h5>
+<a id="selector-management" class="anchor" href="#selector-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selector Management</h5>
+
+<p>The selector management methods are used to limit the usage of DOM selectors all over the page-object. Should you need to access a DOM element then add it to the selector manager using an identifier. This identifier will then be used in the rest of the page-object to access the DOM-element. Should the selector change, then only this one line in the page-object needs to be changed and none of the other lines of code. Again, this is to reduce maintenance.
+These management methods only support CSS selectors since this is the preferred method of accessing DOM-elements. Front-end engineers are most likely familiar with this type of selector, and they are much more flexible and maintainable since they are generally relative.</p>
+
+<p>Here is a short list of all selector management methods (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>getSelectors</code> - Gets a list of already defined selectors</li>
+<li>
+<code>setSelectors</code> - Sets a list of selectors with identifier and selector (key-value pair)</li>
+<li>
+<code>getSelector</code> - Determines the selector of a specific identifier</li>
+<li>
+<code>hasSelector</code> - Checks if a selector was defined</li>
+</ul>
+
+<p>You can set selectors in the <code>initialize</code> method:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+        <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span> <span class="c1">// &lt;key&gt;: &lt;css-selector&gt;</span>
+        <span class="s2">"passwordInput"</span><span class="o">:</span> <span class="s2">".login-password"</span><span class="p">,</span>
+        <span class="s2">"rememberMeCheck"</span><span class="o">:</span> <span class="s2">".remember-me"</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4>
+<a id="loaders" class="anchor" href="#loaders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loaders</h4>
+
+<p>Loader methods take a selector identifier, and they make sure that the element exists on the page. For example, when you click on the "Login" button of a <code>LoginPage</code>, after a successful login, the browser is redirected to a dashboard-page with the page-object <code>DashboardPage</code>. For this a <code>login</code> method on the <code>LoginPage</code> object will fill-in the login information and will click on the submit button, returning the newly created page-object <code>LoginPage</code>. However, the <code>LoginPage</code> must make sure that it is loaded by checking the loading selectors, possibly timing out with an error when these elements are not found. This will make sure that the test-code is not filled with sleeps, spin-assertions, or even control-structures that would increase the complexity of the tests. Loader methods will add a huge amount of self-testing to the page-objects, simplifying the tests overall.</p>
+
+<p>Here is a short list of all loader methods (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>verifyIsLoaded</code> - Verifies that the page-object is loaded. By default, this will check all load-selectors but it can be overwritten to check even more. This method is called automatically after initialization but can also be called manually afterwards.</li>
+<li>
+<code>addLoadSelector</code> - Adds a single load-selector</li>
+<li>
+<code>addLoadSelectors</code> - Adds a range of load-selectors</li>
+</ul>
+
+<p>You can add the loading selectors right after declaring the selectors:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+        <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span> <span class="c1">// &lt;key&gt;: &lt;css-selector&gt;</span>
+        <span class="c1">// ...</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Makes sure that "usernameInput" is there before completing the initialization process.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">addLoadSelectors</span><span class="p">([</span><span class="s2">"usernameInput"</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4>
+<a id="client-accessors" class="anchor" href="#client-accessors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client Accessors</h4>
+
+<p>The client accessors will give access to the DOM elements by providing the selector identifier - you cannot use a css selector directly for these methods.</p>
+
+<p>Here is a short list of all client-accessor methods (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>getElement</code> - Gets the low-level selenium element for a selector identifier</li>
+<li>
+<code>hasElement</code> - Checks if the DOM-element for the selector identifier exists</li>
+<li>
+<code>waitForElements</code> - Waits for elements to appear in the DOM</li>
+</ul>
+
+<h4>
+<a id="screenshot-management" class="anchor" href="#screenshot-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshot Management</h4>
+
+<p>The page-objects expose a couple of features to simplify taking screenshots of whole pages or sub-components of a page. This can ideally be used with projects like Kobold to check for visual regressions.</p>
+
+<p>To take a screenshot (or parts of the screen) within a page-object, simply call the <code>capture</code> method. At this point, this is the only method that is inherently asynchronous as it uses some low-level methods that required asynchronicity. To simplify this, the capture method returns a <strong>Promise</strong>.</p>
+
+<p>In some cases, you might want to black-out some areas of the screenshot to make sure that the visual regression testing framework doesn't fail on things that are known to change from test to test. For example, creation date labels are areas of the screen that will change from test to test as the time will change; mocking this data might add just too much complexity to the tests. A better way might be just to black-out that area so that it is consistently black for every visual-regression test-run.
+The capture method uses the <code>blackOut</code> method to determine the coordinates that need to be blacked. One can supply static coordinates or one could supply selector identifiers to determine the coordinates of the DOM-element dynamically.</p>
+
+<p>Here an example:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
+<span class="cm"> * @class OrderDetailsPage</span>
+<span class="cm"> * @extends PageObject</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">OrderDetailsPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+                <span class="c1">// ...</span>
+                <span class="s2">"creationDateLabel"</span><span class="o">:</span> <span class="s2">".order.creation-date"</span><span class="p">,</span>
+                <span class="c1">// ...</span>
+            <span class="p">});</span>
+
+            <span class="c1">// ...</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * List of blackout coordinates for the current page-object</span>
+<span class="cm">         *</span>
+<span class="cm">         * @return {object[]} With format [{ x:&lt;int&gt;, y:&lt;int&gt;, width:&lt;int&gt;, height:&lt;int&gt; }]</span>
+<span class="cm">         */</span>
+        <span class="nx">blackOut</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="c1">// Fixed coordinates</span>
+                <span class="p">{</span> <span class="nx">x</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">15</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span><span class="mi">200</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">100</span> <span class="p">},</span>
+
+                <span class="c1">// Flexible coordinates of a DOM-element, determined </span>
+                <span class="c1">// just before the screenshot is taken</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">getFrame</span><span class="p">(</span><span class="s2">"searchField"</span><span class="p">)</span> 
+            <span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>Then, in the test you can capture the view:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">testsuite</span><span class="p">(</span><span class="s2">"Order Details"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="s1">'appearance'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// Take screenshot of order-detail context, black-out areas defined </span>
+        <span class="c1">// in "blackOut", and save the file into the screenshot directory </span>
+        <span class="c1">// with the name of this test.</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">orderPage</span><span class="p">.</span><span class="nx">capture</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">fullTitle</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// Success</span>
+            <span class="nx">done</span><span class="p">();</span>
+        <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Failure</span>
+            <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="c1">// Unfortunately, this is what needs to be done when tests need to </span>
+        <span class="c1">// be asynchronous when using asynchronous calls within the test</span>
+    <span class="p">});</span>
+
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Here is a short list of all screenshot related methods (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>getFrame</code> - Gets the coordinates of a DOM-element by supplying the selector identifier.</li>
+<li>
+<code>blackOut</code> - Supplies a list of coordinates that should be blacked-out. <code>capture</code> calls this method when taking a screenshot.</li>
+<li>
+<code>capture</code> - Takes a screenshot of the current context, applying any black-out defined. Should the context be smaller than the whole document, then the screenshot gets clipped to the borders of the context.</li>
+</ul>
+
+<h5>
+<a id="utility" class="anchor" href="#utility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utility</h5>
+
+<p>The page-objects add some utility methods to simplify Selenium testing in general. Here is a short list of all these methods (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>waitUntil</code> - This function repeatedly calls the supplied callback-function until it returns true or the timeout is triggered. It uses an additional timeout to reduce the polling, but minimizes with it the wait time. This method can be used instead of static <code>sleep</code>s to check if an element is available or not. It is more flexible and stable as a static <code>sleep</code>. This is also sometimes called a spin-method or combined with assertions as Spin-Assert.</li>
+</ul>
+
+<h4>
+<a id="viewobject" class="anchor" href="#viewobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>ViewObject</h4>
+
+<p>Currently, the <code>ViewObject</code> inherits directly from the <code>BaseObject</code> and doesn't add any additional features. This might change in the future, and should therefore be used instead of <code>BaseObject</code>.</p>
+
+<h4>
+<a id="panelobject" class="anchor" href="#panelobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>PanelObject</h4>
+
+<p>The <code>PanelObject</code> inherits from the <code>ViewObject</code> and is context aware, meaning that it can determine its own context. For example, a page-object has a table that can be determined by a <code>getTableView</code> method. This method selects a DOM-element in its own template (for example Handlebars template), an element holding the table DOM-tree in a sub-element with the tag "table". However, the page-object doesn't (and shouldn't) have an understanding of the implementation details of the table-view and can therefore not select the root element of the <code>TableView</code>. A <code>PanelObject</code> can define a <code>SELECTOR</code> on the constructor to find its own root DOM-element.</p>
+
+<p>For example, you have the following handlebars template for an <code>OrderPage</code> page-object:</p>
+
+<div class="highlight highlight-html"><pre>...
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"order-list"</span><span class="nt">&gt;</span>
+    {{view table content=rows}}
+<span class="nt">&lt;/div&gt;</span>
+...
+</pre></div>
+
+<p>The table object has this view-structure:</p>
+
+<div class="highlight highlight-html"><pre>...
+<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table-view"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        ...
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+...
+</pre></div>
+
+<p>The `<code>OrderPage</code> page-object exposes the table-view as follows:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
+<span class="cm"> * @class OrderPage</span>
+<span class="cm"> * @extends PageObject</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+                <span class="c1">// ...</span>
+                <span class="c1">// Selects the element in the current view since the </span>
+                <span class="c1">// OrderPage should not know anything about how the </span>
+                <span class="c1">// table is implemented</span>
+                <span class="s2">"table"</span><span class="o">:</span> <span class="s2">".order-list"</span><span class="p">,</span> 
+                <span class="c1">// ...</span>
+            <span class="p">});</span>
+
+            <span class="c1">// ...</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * Gets the table-view</span>
+<span class="cm">         *</span>
+<span class="cm">         * @return {TableView]</span>
+<span class="cm">         */</span>
+        <span class="nx">getTableView</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">TableView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'table'</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>The <code>TableView</code> needs now to make sure that the context is on the correct DOM-element since it should be on the "table" tag instead of the parent "div":</p>
+
+<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
+<span class="cm"> * @class OrderPage</span>
+<span class="cm"> * @extends PanelObject</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PanelObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+
+    <span class="c1">// On prototype</span>
+    <span class="p">{</span>
+        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+
+            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
+                <span class="c1">// ...</span>
+                <span class="c1">// Selects the element in the current view since the </span>
+                <span class="c1">// OrderPage should not know anything about how the </span>
+                <span class="c1">// table is implemented</span>
+                <span class="s2">"table"</span><span class="o">:</span> <span class="s2">".order-list"</span><span class="p">,</span> 
+                <span class="c1">// ...</span>
+            <span class="p">});</span>
+
+            <span class="c1">// ...</span>
+        <span class="p">},</span>
+
+        <span class="cm">/**</span>
+<span class="cm">         * Gets the table-view</span>
+<span class="cm">         *</span>
+<span class="cm">         * @return {TableView]</span>
+<span class="cm">         */</span>
+        <span class="nx">getTableView</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// Getting element with the selector identifier</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">TableView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'table'</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Defined on the constructor - no need for an instance</span>
+    <span class="p">{</span>
+        <span class="nx">SELECTOR</span><span class="o">:</span> <span class="s2">"table.table-view"</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>When the initializer is executed, the <code>PanelObject</code> will check if there is a SELECTOR defined and uses that selector to select the right DOM-element from the current context, which could be already a sub-section of a page.</p>
+
+<h4>
+<a id="pageobject" class="anchor" href="#pageobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>PageObject</h4>
+
+<p><code>PageObject</code>s are specific to whole pages that required urls.
+Every <code>PageObject</code> can have a couple of properties defined on the constructor to change its behavior:</p>
+
+<ul>
+<li>
+<code>BASE</code> - Base-url of the page. Set this property directly on the <code>PageObject</code> itself to use it as base-url for all <code>PageObject</code>s.</li>
+<li>
+<code>URL</code> - Base-url relative resource locator of the page.</li>
+<li>
+<code>EXPECTED_URL</code> - Regex of the expected url. The <code>PageObject</code> validates that this url is reached when the page-object is created. Should no <code>EXPECTED_URL</code> be given, then the <code>URL</code> with <code>BASE</code> will be used instead. This parameter is a great way to test redirects.</li>
+</ul>
+
+<p>It also adds some utility methods to the constructor (see the API documentation for more information):</p>
+
+<ul>
+<li>
+<code>getBaseUrl</code> - Gets the base-url of the <code>PageObject</code>
+</li>
+<li>
+<code>getUrl</code> - Gets the relative path of the url</li>
+<li>
+<code>getNavigationUrl</code> - Gets the complete url, combining <code>BASE</code> and <code>URL</code>
+</li>
+<li>
+<code>getExpectedUrl</code> - Gets the <code>EXPECTED_URL</code> or <code>getNavigationUrl</code> if no <code>EXPECTED_URL</code> is given.</li>
+</ul>
+
+<p>The <code>PageObject</code> inherits from the <code>PanelObject</code> and therefore also supports a modified context. By default, the whole body is used, but by defining a <code>SELECTOR</code> one could exclude headers and navigation bars from the <code>PageObject</code> context since they might implement in their own <code>ViewObject</code> or <code>PanelObject</code>.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
+<span class="cm"> * @class OrderPage</span>
+<span class="cm"> * @extends PageObject</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">},</span>
+
+    <span class="p">{</span>
+        <span class="nx">URL</span><span class="o">:</span> <span class="s2">"/orders"</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>You can navigate to this page with:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">setup</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Navigate to the page and wait some time if needed </span>
+    <span class="c1">// since we know the page is slow</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ordersPage</span> <span class="o">=</span> <span class="nx">OrderPage</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>
+<a id="genericpageobject" class="anchor" href="#genericpageobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>GenericPageObject</h4>
+
+<p>This object inherits also from <code>PanelObject</code> and is very similar to the <code>PageObject</code>. However, it was created to be used for ad-hoc page-objects and checking its url. For example, you could use this to test opening external links -  you don't necessarily want to create page-objects but still want to test it. <code>navigationUrl</code> and <code>expectedUrl</code> can be directly supplied to the constructor for this object, making sure that you don't have to extend the object. This is currently the only Object that doesn't need to be extended to be used.</p>
+
+<h4>
+<a id="sychronous-and-asynchronous" class="anchor" href="#sychronous-and-asynchronous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sychronous and asynchronous</h4>
+
+<p>This Selenium pattern library currently only supports synchronous Selenium clients. Making these available for asynchronous Selenium clients is a todo item.
+However, reconsider using synchronous Selenium clients as they simplify your testing-code immensely; the asynchronous behavior of Node can be confusing, having no benefit since the testing script will always have only one user at the same time - it is not a server.
+I am in good company with this since Jason Huggins, the creator of Selenium and co-founder of SauceLabs, also advocates for <a href="https://gist.github.com/hugs/9156094">synchronous node Selenium testing</a>.</p>
+
+<h3>
+<a id="driver-adapter" class="anchor" href="#driver-adapter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Driver-Adapter</h3>
+
+<p>The driver-adapter will give the page-objects a consistent way of accessing low-level Selenium elements and functions.</p>
+
+<p>The following adapters for Selenium clients are available:</p>
+
+<ul>
+<li>
+<code>cabbie</code> (<a href="https://github.com/ForbesLindesay/cabbie">https://github.com/ForbesLindesay/cabbie</a>)</li>
+</ul>
+
+<p>Hodman exposes all standard driver-adapter with <code>hodman.driverAdapters</code>:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">cabbie</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cabbie'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="nx">cabbie</span><span class="p">(</span><span class="s1">'http://127.0.0.1:4444/wd/hub'</span><span class="p">,</span> 
+                    <span class="p">{</span> <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span> <span class="p">},</span>  <span class="c1">// With firefox</span>
+                    <span class="p">{</span> <span class="nx">mode</span><span class="o">:</span> <span class="nx">cabbie</span><span class="p">.</span><span class="nx">MODE_SYNC</span> <span class="p">});</span> <span class="c1">// In sync-mode</span>
+
+<span class="kd">var</span> <span class="nx">driverAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">driverAdapters</span><span class="p">.</span><span class="nx">Cabbie</span><span class="p">(</span><span class="nx">driver</span><span class="p">);</span>
+</pre></div>
+
+<p>Should your favorite Selenium client not be available, then please request it in the issues tab or implement your own adapter by using the exposed abstract <code>DriverAdapter</code> object as base-class:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+
+<span class="c1">// Inherit from DriverAdapter</span>
+<span class="kd">var</span> <span class="nx">SeleniumClientAdapter</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">DriverAdapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+
+    <span class="p">{</span> <span class="c1">// Prototype methods</span>
+
+       <span class="c1">// Implementation</span>
+
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>Most of the methods needs to be overwritten as they trigger an error by default to make the developer aware of a missing feature. See the API-documentation for details.</p>
+
+<p>To initialize the page-object system, you need to assign the adapter to the BaseObject.DRIVER_ADAPTER property. From that point on, all page-objects will use the supplied driver-adapter to access the browser DOM.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">DRIVER_ADAPTER</span> <span class="o">=</span> <span class="nx">driverAdapter</span><span class="p">;</span>
+</pre></div>
+
+<h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API-Documentation</h2>
+
+<p>Generate the documentation with following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm run docs
+</pre></div>
+
+<p>The documentation will be generated in the <code>docs</code> folder of the module root.</p>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>Run the tests with the following command:</p>
+
+<div class="highlight highlight-shell"><pre>npm run <span class="nb">test</span>
+</pre></div>
+
+<p>The code-coverage will be written to the <code>coverage</code> folder in the module root.</p>
+
+<h2>
+<a id="project-naming" class="anchor" href="#project-naming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Naming</h2>
+
+<p>A hodman is mason's laborer who carries bricks, mortar, and cement, helping its master to get the work done. Each part of this project could be considered a brick that is built on top of each other.</p>
+
+<h2>
+<a id="third-party-libraries" class="anchor" href="#third-party-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Third-party libraries</h2>
+
+<p>The following third-party libraries are used by this module:</p>
+
+<h3>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<ul>
+<li>pngjs-image: <a href="https://github.com/yahoo/pngjs-image">https://github.com/yahoo/pngjs-image</a>
+</li>
+<li>preceptor-core: <a href="https://github.com/yahoo/preceptor-core">https://github.com/yahoo/preceptor-core</a>
+</li>
+<li>promise: <a href="https://github.com/then/promise">https://github.com/then/promise</a>
+</li>
+<li>teddybear: <a href="https://github.com/AndreasMadsen/teddybear">https://github.com/AndreasMadsen/teddybear</a>
+</li>
+<li>underscore: <a href="http://underscorejs.org">http://underscorejs.org</a>
+</li>
+</ul>
+
+<h3>
+<a id="dev-dependencies" class="anchor" href="#dev-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dev-Dependencies</h3>
+
+<ul>
+<li>chai: <a href="http://chaijs.com">http://chaijs.com</a>
+</li>
+<li>istanbul: <a href="https://github.com/gotwarlost/istanbul">https://github.com/gotwarlost/istanbul</a>
+</li>
+<li>mocha: <a href="https://github.com/visionmedia/mocha">https://github.com/visionmedia/mocha</a>
+</li>
+<li>yuidocjs: <a href="https://github.com/yui/yuidoc">https://github.com/yui/yuidoc</a>
+</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License</p>
+
+<p>Copyright 2014 Yahoo Inc.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Hodman maintained by <a href="https://github.com/yahoo">yahoo</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-56408730-9");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
