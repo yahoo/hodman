@@ -3,6 +3,31 @@ Hodman
 
 Selenium object library including page-objects.
 
+[![Build Status](https://secure.travis-ci.org/yahoo/hodman.png)](http://travis-ci.org/yahoo/hodman)
+[![npm version](https://badge.fury.io/js/hodman.svg)](http://badge.fury.io/js/hodman)
+
+[![NPM](https://nodei.co/npm/hodman.png?downloads=true)](https://nodei.co/npm/hodman/)
+
+
+**Table of Contents**
+* [Installation](#installation)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+    * [Page-Objects](#page-objects)
+        * [BaseObject](#baseobject)
+        * [ViewObject](#viewobject)
+        * [PanelObject](#panelobject)
+        * [PageObject](#pageobject)
+        * [GenericPageObject](#genericpageobject)
+    * [Driver-Adapter](#driver-adapter)
+    * [Sychronous and asynchronous](#sychronous-and-asynchronous)
+* [API-Documentation](#api-documentation)
+* [Tests](#tests)
+* [Project Naming](#project-naming)
+* [Third-party libraries](#third-party-libraries)
+* [License](#license)
+
+
 ##Installation
 
 Install this module with the following command:
