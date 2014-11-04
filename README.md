@@ -9,6 +9,11 @@ Selenium object library including page-objects.
 [![NPM](https://nodei.co/npm/hodman.png?downloads=true)](https://nodei.co/npm/hodman/)
 
 
+[API-Documentation](http://yahoo.github.io/hodman/docs/)
+
+[Coverage Report](http://yahoo.github.io/hodman/coverage/lcov-report/)
+
+
 **Table of Contents**
 * [Installation](#installation)
 * [Getting Started](#getting-started)
