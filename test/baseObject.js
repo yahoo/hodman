@@ -2,7 +2,7 @@
 // Copyright 2014, Yahoo! Inc.
 // Copyrights licensed under the Mit License. See the accompanying LICENSE file for terms.
 
-var BaseObject = require('../lib/baseObject');
+var BaseObject = require('..').BaseObject;
 var expect = require('chai').expect;
 
 describe('Base-Object', function () {
@@ -21,12 +21,12 @@ describe('Base-Object', function () {
 			expect(this.Class.toString()).to.equal("[" + this.Class.TYPE + "]")
 		});
 
-		it('should have a SCREENSHOT_PATH', function () {
-			expect(this.Class.SCREENSHOT_PATH).to.be.equal('');
+		it('should have a getScreenshotPath', function () {
+			expect(this.Class.getScreenshotPath()).to.be.undefined;
 		});
 
-		it('should have a DRIVER_ADAPTER', function () {
-			expect(this.class.DRIVER_ADAPTER).to.be.null;
+		it('should have a getDriverAdapter', function () {
+			expect(this.Class.getDriverAdapter()).to.be.undefined;
 		})
 	});
 
@@ -41,13 +41,8 @@ describe('Base-Object', function () {
 			expect(this.instance.NAME).to.equal('unnamed');
 		});
 
-		it('should have a unique id', function () {
-			expect(this.instance.uniqueId).to.exist;
-			expect(this.instance.uniqueId).to.contain('instance');
-		});
-
 		it('should be convertible to string', function () {
-			expect(this.instance.toString()).to.equal("[" + this.Class.TYPE + "::" + this.instance.NAME + "(" + this.instance.uniqueId + ")" + "]")
+			expect(this.instance.toString()).to.equal("[" + this.Class.TYPE + "::" + this.instance.NAME + "(" + this.instance._uniqueId + ")" + "]")
 		});
 
 	});
