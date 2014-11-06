@@ -608,7 +608,7 @@ The following third-party libraries are used by this module:
 * pngjs-image: https://github.com/yahoo/pngjs-image
 * preceptor-core: https://github.com/yahoo/preceptor-core
 * promise: https://github.com/then/promise
-* teddybear: https://github.com/AndreasMadsen/teddybear
+* sleep.js: https://github.com/h2non/sleep.js
 * underscore: http://underscorejs.org
 
 ###Dev-Dependencies
