@@ -81,168 +81,163 @@
 
 <p>Install this module with the following command:</p>
 
-<div class="highlight highlight-shell"><pre>npm install hodman
-</pre></div>
+<div class="highlight highlight-shell"><pre>npm install hodman</pre></div>
 
 <p>Add the module to your <code>package.json</code> dependencies:</p>
 
-<div class="highlight highlight-shell"><pre>npm install --save hodman
-</pre></div>
+<div class="highlight highlight-shell"><pre>npm install --save hodman</pre></div>
 
 <p>Add the module to your <code>package.json</code> dev-dependencies:</p>
 
-<div class="highlight highlight-shell"><pre>npm install --save-dev hodman
-</pre></div>
+<div class="highlight highlight-shell"><pre>npm install --save-dev hodman</pre></div>
 
 <p>Require the module in your source-code:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> hodman <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>hodman<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <p>The following example sets-up the page-object system and creates an example page-object for a login page.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">cabbie</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cabbie'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> cabbie <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>cabbie<span class="pl-pds">'</span></span>);
+<span class="pl-s">var</span> hodman <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>hodman<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Initialize the selenium client. In this case, it is "cabbie". </span>
-<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="nx">cabbie</span><span class="p">(</span><span class="s1">'http://127.0.0.1:4444/wd/hub'</span><span class="p">,</span> 
-                    <span class="p">{</span> <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span> <span class="p">},</span>  <span class="c1">// With firefox</span>
-                    <span class="p">{</span> <span class="nx">mode</span><span class="o">:</span> <span class="nx">cabbie</span><span class="p">.</span><span class="nx">MODE_SYNC</span> <span class="p">});</span> <span class="c1">// In sync-mode</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Initialize the selenium client. In this case, it is "cabbie". </span>
+<span class="pl-s">var</span> driver <span class="pl-ko">=</span> cabbie(<span class="pl-s1"><span class="pl-pds">'</span>http://127.0.0.1:4444/wd/hub<span class="pl-pds">'</span></span>, 
+                    { browserName<span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">'</span>firefox<span class="pl-pds">'</span></span> },  <span class="pl-c"><span class="pl-pdc">//</span> With firefox</span>
+                    { mode<span class="pl-ko">:</span> cabbie.MODE_SYNC }); <span class="pl-c"><span class="pl-pdc">//</span> In sync-mode</span>
 
-<span class="c1">// Create driver-adapter for the page-objects to have a consistent interface </span>
-<span class="c1">// for all supported selenium clients.</span>
-<span class="kd">var</span> <span class="nx">driverAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">driverAdapters</span><span class="p">.</span><span class="nx">Cabbie</span><span class="p">(</span><span class="nx">driver</span><span class="p">);</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Create driver-adapter for the page-objects to have a consistent interface </span>
+<span class="pl-c"><span class="pl-pdc">//</span> for all supported selenium clients.</span>
+<span class="pl-s">var</span> driverAdapter <span class="pl-ko">=</span> <span class="pl-ko">new</span> <span class="pl-enti">hodman.driverAdapters</span>.Cabbie(driver);
 
-<span class="c1">// Assign the driver-adapter to the page-object sub-system</span>
-<span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">DRIVER_ADAPTER</span> <span class="o">=</span> <span class="nx">driverAdapter</span><span class="p">;</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Assign the driver-adapter to the page-object sub-system</span>
+hodman.BaseObject.DRIVER_ADAPTER <span class="pl-ko">=</span> driverAdapter;
 
-<span class="c1">// Setup path for screenshots</span>
-<span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">SCREENSHOT_PATH</span> <span class="o">=</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">"/screens"</span><span class="p">;</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Setup path for screenshots</span>
+hodman.BaseObject.SCREENSHOT_PATH <span class="pl-ko">=</span> __dirname <span class="pl-ko">+</span> <span class="pl-s1"><span class="pl-pds">"</span>/screens<span class="pl-pds">"</span></span>;
 
-<span class="c1">// Use "preceptor" to remove all of the configuration above from your code </span>
-<span class="c1">// and make this transparent for any testing environment.</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Use "preceptor" to remove all of the configuration above from your code </span>
+<span class="pl-c"><span class="pl-pdc">//</span> and make this transparent for any testing environment.</span>
 
-<span class="c1">// Create a page-object...</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Create a page-object...</span>
 
-<span class="cm">/**</span>
-<span class="cm"> * @class LoginPage</span>
-<span class="cm"> * @extends PageObject</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">LoginPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+<span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c"> * @class LoginPage</span>
+<span class="pl-c"> * @extends PageObject</span>
+<span class="pl-c"> <span class="pl-pdc">*/</span></span>
+<span class="pl-s">var</span> LoginPage <span class="pl-ko">=</span> hodman.PageObject.extend(
 
-    <span class="c1">// Constructor (optional)</span>
-    <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> Constructor (optional)</span>
+    <span class="pl-s">function</span> () {
 
-        <span class="c1">// ... Some setup</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> ... Some setup</span>
 
-        <span class="c1">// Overwrite constructor if you need additional parameters.</span>
-        <span class="c1">// You can use the initialize method for initialization purposes. </span>
-        <span class="c1">// No need to overwrite the constructor for that.</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> Overwrite constructor if you need additional parameters.</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> You can use the initialize method for initialization purposes. </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> No need to overwrite the constructor for that.</span>
 
-        <span class="c1">// Call parent constructor after general setup. </span>
-        <span class="c1">// The initialize method will be called in parent constructor.</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> 
+        <span class="pl-c"><span class="pl-pdc">//</span> Call parent constructor after general setup. </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> The initialize method will be called in parent constructor.</span>
+        <span class="pl-v">this</span>.__super(); 
 
-        <span class="c1">// ... Possibly something else</span>
-    <span class="p">},</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> ... Possibly something else</span>
+    },
 
-    <span class="c1">// Prototype</span>
-    <span class="p">{</span>
-        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> Prototype</span>
+    {
+        <span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
 
-            <span class="c1">// Make sure to always call the parent method even if there is non at the time </span>
-            <span class="c1">// of creation. The sub-system will take care of it and create an empty </span>
-            <span class="c1">// function if needed. This will make sure that this page-object will </span>
-            <span class="c1">// pick up any new futures which require initialization.</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> 
+            <span class="pl-c"><span class="pl-pdc">//</span> Make sure to always call the parent method even if there is non at the time </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> of creation. The sub-system will take care of it and create an empty </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> function if needed. This will make sure that this page-object will </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> pick up any new futures which require initialization.</span>
+            <span class="pl-v">this</span>.__super(); 
 
-            <span class="c1">// Setup selectors (css-selectors) and assign them a name that should be used </span>
-            <span class="c1">// throughout the page-object.</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Setup selectors (css-selectors) and assign them a name that should be used </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> throughout the page-object.</span>
 
-            <span class="c1">// Should the selector change in the future, then only this block needs to change.</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-                <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span>
-                <span class="s2">"passwordInput"</span><span class="o">:</span> <span class="s2">".login-password"</span><span class="p">,</span>
-                <span class="s2">"rememberMeCheck"</span><span class="o">:</span> <span class="s2">".remember-me"</span>
-            <span class="p">});</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Should the selector change in the future, then only this block needs to change.</span>
+            <span class="pl-v">this</span>.setSelectors({
+                <span class="pl-s1"><span class="pl-pds">"</span>usernameInput<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.login-username<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>passwordInput<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.login-password<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>rememberMeCheck<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.remember-me<span class="pl-pds">"</span></span>
+            });
 
-            <span class="c1">// Any page-object can have load-selectors which are selectors for element that </span>
-            <span class="c1">// are needed for the page to be "loaded". Should the Page-object will check </span>
-            <span class="c1">// for these elements to appear on the page before claiming success on</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">addLoadSelectors</span><span class="p">([</span><span class="s2">"usernameInput"</span><span class="p">]);</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Any page-object can have load-selectors which are selectors for element that </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> are needed for the page to be "loaded". Should the Page-object will check </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> for these elements to appear on the page before claiming success on</span>
+            <span class="pl-v">this</span>.addLoadSelectors([<span class="pl-s1"><span class="pl-pds">"</span>usernameInput<span class="pl-pds">"</span></span>]);
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * Logs the user in</span>
-<span class="cm">         *</span>
-<span class="cm">         * @param {string} username</span>
-<span class="cm">         * @param {string} password</span>
-<span class="cm">         * @param {boolean} [rememberMe=false]</span>
-<span class="cm">         * @return {LoginPage}</span>
-<span class="cm">         */</span>
-        <span class="nx">login</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">rememberMe</span><span class="p">)</span> <span class="p">{</span>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * Logs the user in</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @param {string} username</span>
+<span class="pl-c">         * @param {string} password</span>
+<span class="pl-c">         * @param {boolean} [rememberMe=false]</span>
+<span class="pl-c">         * @return {LoginPage}</span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">login</span>: <span class="pl-s">function</span> (<span class="pl-vpf">username</span>, <span class="pl-vpf">password</span>, <span class="pl-vpf">rememberMe</span>) {
 
-            <span class="c1">// Chainable call to set username and password</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">setUsername</span><span class="p">(</span><span class="nx">username</span><span class="p">).</span><span class="nx">setPassword</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Chainable call to set username and password</span>
+            <span class="pl-v">this</span>.setUsername(username).setPassword(password);
 
-            <span class="c1">// Try to limit the use of control-structures as much as possible since they </span>
-            <span class="c1">// add complexity to the page-objects (and tests). Make it as linear as possible.</span>
-            <span class="c1">// You don't really want to start testing the test system.</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">rememberMe</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">checkRememberMe</span><span class="p">();</span>
-            <span class="p">}</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Try to limit the use of control-structures as much as possible since they </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> add complexity to the page-objects (and tests). Make it as linear as possible.</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> You don't really want to start testing the test system.</span>
+            <span class="pl-k">if</span> (rememberMe) {
+                <span class="pl-v">this</span>.checkRememberMe();
+            }
 
-            <span class="c1">// Return the page-object itself if the method doesn't return anything </span>
-            <span class="c1">// to make the function chainable</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Return the page-object itself if the method doesn't return anything </span>
+            <span class="pl-c"><span class="pl-pdc">//</span> to make the function chainable</span>
+            <span class="pl-k">return</span> <span class="pl-v">this</span>;
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * Sets a username</span>
-<span class="cm">         *</span>
-<span class="cm">         * @param {string} username</span>
-<span class="cm">         * @return {LoginPage} </span>
-<span class="cm">         */</span>
-        <span class="nx">setUsername</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">username</span><span class="p">)</span> <span class="p">{</span>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * Sets a username</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @param {string} username</span>
+<span class="pl-c">         * @return {LoginPage} </span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">setUsername</span>: <span class="pl-s">function</span> (<span class="pl-vpf">username</span>) {
 
-            <span class="c1">// Clear any username already set</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">clearUsername</span><span class="p">();</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Clear any username already set</span>
+            <span class="pl-v">this</span>.clearUsername();
 
-            <span class="c1">// Set the value for username</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'usernameInput'</span><span class="p">).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="nx">username</span><span class="p">);</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Set the value for username</span>
+            <span class="pl-v">this</span>.getElement(<span class="pl-s1"><span class="pl-pds">'</span>usernameInput<span class="pl-pds">'</span></span>).sendKeys(username);
 
-            <span class="c1">// Again, return "this"</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> Again, return "this"</span>
+            <span class="pl-k">return</span> <span class="pl-v">this</span>;
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * Clears any username entered</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return {LoginPage}</span>
-<span class="cm">         */</span>
-        <span class="nx">clearUsername</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'usernameInput'</span><span class="p">).</span><span class="nx">clear</span><span class="p">();</span>
-            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-        <span class="p">},</span>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * Clears any username entered</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @return {LoginPage}</span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">clearUsername</span>: <span class="pl-s">function</span> () {
+            <span class="pl-v">this</span>.getElement(<span class="pl-s1"><span class="pl-pds">'</span>usernameInput<span class="pl-pds">'</span></span>).<span class="pl-sf">clear</span>();
+            <span class="pl-k">return</span> <span class="pl-v">this</span>;
+        },
 
-        <span class="c1">// ... some other methods</span>
-    <span class="p">},</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> ... some other methods</span>
+    },
 
-    <span class="c1">// Static - Copied to the constructor</span>
-    <span class="p">{</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> Static - Copied to the constructor</span>
+    {
 
-        <span class="c1">// Define static methods here. These methods will be assigned to the constructor and </span>
-        <span class="c1">// therefore can be called then directly on the constructor itself.</span>
-        <span class="c1">// </span>
-        <span class="c1">// For example:</span>
-        <span class="c1">// LoginPage.navigateTo();</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> Define static methods here. These methods will be assigned to the constructor and </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> therefore can be called then directly on the constructor itself.</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> For example:</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> LoginPage.navigateTo();</span>
 
-        <span class="c1">// ...</span>
-    <span class="p">}</span>
-</pre></div>
+        <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+    }</pre></div>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -333,16 +328,15 @@ These management methods only support CSS selectors since this is the preferred 
 
 <p>You can set selectors in the <code>initialize</code> method:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
+    <span class="pl-v">this</span>.__super(); <span class="pl-c"><span class="pl-pdc">//</span> Call parent</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-        <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span> <span class="c1">// &lt;key&gt;: &lt;css-selector&gt;</span>
-        <span class="s2">"passwordInput"</span><span class="o">:</span> <span class="s2">".login-password"</span><span class="p">,</span>
-        <span class="s2">"rememberMeCheck"</span><span class="o">:</span> <span class="s2">".remember-me"</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-</pre></div>
+    <span class="pl-v">this</span>.setSelectors({
+        <span class="pl-s1"><span class="pl-pds">"</span>usernameInput<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.login-username<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-pdc">//</span> &lt;key&gt;: &lt;css-selector&gt;</span>
+        <span class="pl-s1"><span class="pl-pds">"</span>passwordInput<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.login-password<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>rememberMeCheck<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.remember-me<span class="pl-pds">"</span></span>
+    });
+}</pre></div>
 
 <h4>
 <a id="loaders" class="anchor" href="#loaders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loaders</h4>
@@ -362,18 +356,17 @@ These management methods only support CSS selectors since this is the preferred 
 
 <p>You can add the loading selectors right after declaring the selectors:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
+    <span class="pl-v">this</span>.__super(); <span class="pl-c"><span class="pl-pdc">//</span> Call parent</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-        <span class="s2">"usernameInput"</span><span class="o">:</span> <span class="s2">".login-username"</span><span class="p">,</span> <span class="c1">// &lt;key&gt;: &lt;css-selector&gt;</span>
-        <span class="c1">// ...</span>
-    <span class="p">});</span>
+    <span class="pl-v">this</span>.setSelectors({
+        <span class="pl-s1"><span class="pl-pds">"</span>usernameInput<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.login-username<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-pdc">//</span> &lt;key&gt;: &lt;css-selector&gt;</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+    });
 
-    <span class="c1">// Makes sure that "usernameInput" is there before completing the initialization process.</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">addLoadSelectors</span><span class="p">([</span><span class="s2">"usernameInput"</span><span class="p">]);</span>
-<span class="p">}</span>
-</pre></div>
+    <span class="pl-c"><span class="pl-pdc">//</span> Makes sure that "usernameInput" is there before completing the initialization process.</span>
+    <span class="pl-v">this</span>.addLoadSelectors([<span class="pl-s1"><span class="pl-pds">"</span>usernameInput<span class="pl-pds">"</span></span>]);
+}</pre></div>
 
 <h4>
 <a id="client-accessors" class="anchor" href="#client-accessors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client Accessors</h4>
@@ -403,68 +396,66 @@ The capture method uses the <code>blackOut</code> method to determine the coordi
 
 <p>Here an example:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
-<span class="cm"> * @class OrderDetailsPage</span>
-<span class="cm"> * @extends PageObject</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">OrderDetailsPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c"> * @class OrderDetailsPage</span>
+<span class="pl-c"> * @extends PageObject</span>
+<span class="pl-c"> <span class="pl-pdc">*/</span></span>
+<span class="pl-s">var</span> OrderDetailsPage <span class="pl-ko">=</span> hodman.PageObject.extend(
+    {
+        <span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
+            <span class="pl-v">this</span>.__super(); <span class="pl-c"><span class="pl-pdc">//</span> Call parent</span>
 
-            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-                <span class="c1">// ...</span>
-                <span class="s2">"creationDateLabel"</span><span class="o">:</span> <span class="s2">".order.creation-date"</span><span class="p">,</span>
-                <span class="c1">// ...</span>
-            <span class="p">});</span>
+            <span class="pl-v">this</span>.setSelectors({
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+                <span class="pl-s1"><span class="pl-pds">"</span>creationDateLabel<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.order.creation-date<span class="pl-pds">"</span></span>,
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+            });
 
-            <span class="c1">// ...</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * List of blackout coordinates for the current page-object</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return {object[]} With format [{ x:&lt;int&gt;, y:&lt;int&gt;, width:&lt;int&gt;, height:&lt;int&gt; }]</span>
-<span class="cm">         */</span>
-        <span class="nx">blackOut</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="p">[</span>
-                <span class="c1">// Fixed coordinates</span>
-                <span class="p">{</span> <span class="nx">x</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span><span class="mi">15</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span><span class="mi">200</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span><span class="mi">100</span> <span class="p">},</span>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * List of blackout coordinates for the current page-object</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @return {object[]} With format [{ x:&lt;int&gt;, y:&lt;int&gt;, width:&lt;int&gt;, height:&lt;int&gt; }]</span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">blackOut</span>: <span class="pl-s">function</span> () {
+            <span class="pl-k">return</span> [
+                <span class="pl-c"><span class="pl-pdc">//</span> Fixed coordinates</span>
+                { x<span class="pl-ko">:</span><span class="pl-cn">10</span>, y<span class="pl-ko">:</span><span class="pl-cn">15</span>, width<span class="pl-ko">:</span><span class="pl-cn">200</span>, height<span class="pl-ko">:</span><span class="pl-cn">100</span> },
 
-                <span class="c1">// Flexible coordinates of a DOM-element, determined </span>
-                <span class="c1">// just before the screenshot is taken</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">getFrame</span><span class="p">(</span><span class="s2">"searchField"</span><span class="p">)</span> 
-            <span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
+                <span class="pl-c"><span class="pl-pdc">//</span> Flexible coordinates of a DOM-element, determined </span>
+                <span class="pl-c"><span class="pl-pdc">//</span> just before the screenshot is taken</span>
+                <span class="pl-v">this</span>.getFrame(<span class="pl-s1"><span class="pl-pds">"</span>searchField<span class="pl-pds">"</span></span>) 
+            ];
+        }
+    }
+);</pre></div>
 
 <p>Then, in the test you can capture the view:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">testsuite</span><span class="p">(</span><span class="s2">"Order Details"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-javascript"><pre>testsuite(<span class="pl-s1"><span class="pl-pds">"</span>Order Details<span class="pl-pds">"</span></span>, <span class="pl-s">function</span> () {
 
-    <span class="c1">// ...</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
 
-    <span class="nx">test</span><span class="p">(</span><span class="s1">'appearance'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="pl-sf">test</span>(<span class="pl-s1"><span class="pl-pds">'</span>appearance<span class="pl-pds">'</span></span>, <span class="pl-s">function</span> (<span class="pl-vpf">done</span>) {
 
-        <span class="c1">// Take screenshot of order-detail context, black-out areas defined </span>
-        <span class="c1">// in "blackOut", and save the file into the screenshot directory </span>
-        <span class="c1">// with the name of this test.</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">orderPage</span><span class="p">.</span><span class="nx">capture</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">fullTitle</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">// Success</span>
-            <span class="nx">done</span><span class="p">();</span>
-        <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// Failure</span>
-            <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-        <span class="p">});</span>
-        <span class="c1">// Unfortunately, this is what needs to be done when tests need to </span>
-        <span class="c1">// be asynchronous when using asynchronous calls within the test</span>
-    <span class="p">});</span>
+        <span class="pl-c"><span class="pl-pdc">//</span> Take screenshot of order-detail context, black-out areas defined </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> in "blackOut", and save the file into the screenshot directory </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> with the name of this test.</span>
+        <span class="pl-v">this</span>.orderPage.capture(<span class="pl-v">this</span>.test.fullTitle()).then(<span class="pl-s">function</span> () {
+            <span class="pl-c"><span class="pl-pdc">//</span> Success</span>
+            done();
+        }, <span class="pl-s">function</span> (<span class="pl-vpf">err</span>) {
+            <span class="pl-c"><span class="pl-pdc">//</span> Failure</span>
+            done(err);
+        });
+        <span class="pl-c"><span class="pl-pdc">//</span> Unfortunately, this is what needs to be done when tests need to </span>
+        <span class="pl-c"><span class="pl-pdc">//</span> be asynchronous when using asynchronous calls within the test</span>
+    });
 
-    <span class="c1">// ...</span>
-<span class="p">});</span>
-</pre></div>
+    <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+});</pre></div>
 
 <p>Here is a short list of all screenshot related methods (see the API documentation for more information):</p>
 
@@ -500,100 +491,96 @@ The capture method uses the <code>blackOut</code> method to determine the coordi
 <p>For example, you have the following handlebars template for an <code>OrderPage</code> page-object:</p>
 
 <div class="highlight highlight-html"><pre>...
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"order-list"</span><span class="nt">&gt;</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-eoa">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>order-list<span class="pl-pds">"</span></span>&gt;
     {{view table content=rows}}
-<span class="nt">&lt;/div&gt;</span>
-...
-</pre></div>
+&lt;/<span class="pl-ent">div</span>&gt;
+...</pre></div>
 
 <p>The table object has this view-structure:</p>
 
 <div class="highlight highlight-html"><pre>...
-<span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table-view"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tr&gt;</span>
+&lt;<span class="pl-ent">table</span> <span class="pl-eoa">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>table-view<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
         ...
-    <span class="nt">&lt;/tr&gt;</span>
-<span class="nt">&lt;/table&gt;</span>
-...
-</pre></div>
+    &lt;/<span class="pl-ent">tr</span>&gt;
+&lt;/<span class="pl-ent">table</span>&gt;
+...</pre></div>
 
 <p>The `<code>OrderPage</code> page-object exposes the table-view as follows:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
-<span class="cm"> * @class OrderPage</span>
-<span class="cm"> * @extends PageObject</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c"> * @class OrderPage</span>
+<span class="pl-c"> * @extends PageObject</span>
+<span class="pl-c"> <span class="pl-pdc">*/</span></span>
+<span class="pl-s">var</span> OrderPage <span class="pl-ko">=</span> hodman.PageObject.extend(
+    {
+        <span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
+            <span class="pl-v">this</span>.__super(); <span class="pl-c"><span class="pl-pdc">//</span> Call parent</span>
 
-            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-                <span class="c1">// ...</span>
-                <span class="c1">// Selects the element in the current view since the </span>
-                <span class="c1">// OrderPage should not know anything about how the </span>
-                <span class="c1">// table is implemented</span>
-                <span class="s2">"table"</span><span class="o">:</span> <span class="s2">".order-list"</span><span class="p">,</span> 
-                <span class="c1">// ...</span>
-            <span class="p">});</span>
+            <span class="pl-v">this</span>.setSelectors({
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+                <span class="pl-c"><span class="pl-pdc">//</span> Selects the element in the current view since the </span>
+                <span class="pl-c"><span class="pl-pdc">//</span> OrderPage should not know anything about how the </span>
+                <span class="pl-c"><span class="pl-pdc">//</span> table is implemented</span>
+                <span class="pl-s1"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>.order-list<span class="pl-pds">"</span></span>, 
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+            });
 
-            <span class="c1">// ...</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * Gets the table-view</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return {TableView]</span>
-<span class="cm">         */</span>
-        <span class="nx">getTableView</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nx">TableView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'table'</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * Gets the table-view</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @return {TableView]</span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">getTableView</span>: <span class="pl-s">function</span> () {
+            <span class="pl-k">return</span> <span class="pl-ko">new</span> <span class="pl-enti">TableView</span>(<span class="pl-v">this</span>.getElement(<span class="pl-s1"><span class="pl-pds">'</span>table<span class="pl-pds">'</span></span>));
+        }
+    }
+);</pre></div>
 
 <p>The <code>TableView</code> needs now to make sure that the context is on the correct DOM-element since it should be on the "table" tag instead of the parent "div":</p>
 
-<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
-<span class="cm"> * @class OrderPage</span>
-<span class="cm"> * @extends PanelObject</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PanelObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c"> * @class OrderPage</span>
+<span class="pl-c"> * @extends PanelObject</span>
+<span class="pl-c"> <span class="pl-pdc">*/</span></span>
+<span class="pl-s">var</span> OrderPage <span class="pl-ko">=</span> hodman.PanelObject.extend(
 
-    <span class="c1">// On prototype</span>
-    <span class="p">{</span>
-        <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">__super</span><span class="p">();</span> <span class="c1">// Call parent</span>
+    <span class="pl-c"><span class="pl-pdc">//</span> On prototype</span>
+    {
+        <span class="pl-enf">initialize</span>: <span class="pl-s">function</span> () {
+            <span class="pl-v">this</span>.__super(); <span class="pl-c"><span class="pl-pdc">//</span> Call parent</span>
 
-            <span class="k">this</span><span class="p">.</span><span class="nx">setSelectors</span><span class="p">({</span>
-                <span class="c1">// ...</span>
-                <span class="c1">// Selects the element in the current view since the </span>
-                <span class="c1">// OrderPage should not know anything about how the </span>
-                <span class="c1">// table is implemented</span>
-                <span class="s2">"table"</span><span class="o">:</span> <span class="s2">".order-list"</span><span class="p">,</span> 
-                <span class="c1">// ...</span>
-            <span class="p">});</span>
+            <span class="pl-v">this</span>.setSelectors({
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+                <span class="pl-c"><span class="pl-pdc">//</span> Selects the element in the current view since the </span>
+                <span class="pl-c"><span class="pl-pdc">//</span> OrderPage should not know anything about how the </span>
+                <span class="pl-c"><span class="pl-pdc">//</span> table is implemented</span>
+                <span class="pl-s1"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>table.table-view<span class="pl-pds">"</span></span>, 
+                <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+            });
 
-            <span class="c1">// ...</span>
-        <span class="p">},</span>
+            <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+        },
 
-        <span class="cm">/**</span>
-<span class="cm">         * Gets the table-view</span>
-<span class="cm">         *</span>
-<span class="cm">         * @return {TableView]</span>
-<span class="cm">         */</span>
-        <span class="nx">getTableView</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">// Getting element with the selector identifier</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nx">TableView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">'table'</span><span class="p">));</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
+        <span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c">         * Gets the table-view</span>
+<span class="pl-c">         *</span>
+<span class="pl-c">         * @return {TableView]</span>
+<span class="pl-c">         <span class="pl-pdc">*/</span></span>
+        <span class="pl-enf">getTableView</span>: <span class="pl-s">function</span> () {
+            <span class="pl-c"><span class="pl-pdc">//</span> Getting element with the selector identifier</span>
+            <span class="pl-k">return</span> <span class="pl-ko">new</span> <span class="pl-enti">TableView</span>(<span class="pl-v">this</span>.getElement(<span class="pl-s1"><span class="pl-pds">'</span>table<span class="pl-pds">'</span></span>));
+        }
+    },
 
-    <span class="c1">// Defined on the constructor - no need for an instance</span>
-    <span class="p">{</span>
-        <span class="nx">SELECTOR</span><span class="o">:</span> <span class="s2">"table.table-view"</span>
-    <span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
+    <span class="pl-c"><span class="pl-pdc">//</span> Defined on the constructor - no need for an instance</span>
+    {
+        SELECTOR<span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>div.page-content<span class="pl-pds">"</span></span>
+    }
+);</pre></div>
 
 <p>When the initializer is executed, the <code>PanelObject</code> will check if there is a SELECTOR defined and uses that selector to select the right DOM-element from the current context, which could be already a sub-section of a page.</p>
 
@@ -629,29 +616,27 @@ Every <code>PageObject</code> can have a couple of properties defined on the con
 
 <p>The <code>PageObject</code> inherits from the <code>PanelObject</code> and therefore also supports a modified context. By default, the whole body is used, but by defining a <code>SELECTOR</code> one could exclude headers and navigation bars from the <code>PageObject</code> context since they might implement in their own <code>ViewObject</code> or <code>PanelObject</code>.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="cm">/**</span>
-<span class="cm"> * @class OrderPage</span>
-<span class="cm"> * @extends PageObject</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">OrderPage</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">PageObject</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="c1">// ...</span>
-    <span class="p">},</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">/**</span></span>
+<span class="pl-c"> * @class OrderPage</span>
+<span class="pl-c"> * @extends PageObject</span>
+<span class="pl-c"> <span class="pl-pdc">*/</span></span>
+<span class="pl-s">var</span> OrderPage <span class="pl-ko">=</span> hodman.PageObject.extend(
+    {
+        <span class="pl-c"><span class="pl-pdc">//</span> ...</span>
+    },
 
-    <span class="p">{</span>
-        <span class="nx">URL</span><span class="o">:</span> <span class="s2">"/orders"</span>
-    <span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
+    {
+        URL<span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>/orders<span class="pl-pds">"</span></span>
+    }
+);</pre></div>
 
 <p>You can navigate to this page with:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">setup</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Navigate to the page and wait some time if needed </span>
-    <span class="c1">// since we know the page is slow</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">ordersPage</span> <span class="o">=</span> <span class="nx">OrderPage</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>setup(<span class="pl-s">function</span> () {
+    <span class="pl-c"><span class="pl-pdc">//</span> Navigate to the page and wait some time if needed </span>
+    <span class="pl-c"><span class="pl-pdc">//</span> since we know the page is slow</span>
+    <span class="pl-v">this</span>.ordersPage <span class="pl-ko">=</span> OrderPage.<span class="pl-sf">navigate</span>(<span class="pl-cn">3000</span>);
+});</pre></div>
 
 <h4>
 <a id="genericpageobject" class="anchor" href="#genericpageobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>GenericPageObject</h4>
@@ -679,45 +664,41 @@ I am in good company with this since Jason Huggins, the creator of Selenium and 
 
 <p>Hodman exposes all standard driver-adapter with <code>hodman.driverAdapters</code>:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">cabbie</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cabbie'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> cabbie <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>cabbie<span class="pl-pds">'</span></span>);
+<span class="pl-s">var</span> hodman <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>hodman<span class="pl-pds">'</span></span>);
 
-<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="nx">cabbie</span><span class="p">(</span><span class="s1">'http://127.0.0.1:4444/wd/hub'</span><span class="p">,</span> 
-                    <span class="p">{</span> <span class="nx">browserName</span><span class="o">:</span> <span class="s1">'firefox'</span> <span class="p">},</span>  <span class="c1">// With firefox</span>
-                    <span class="p">{</span> <span class="nx">mode</span><span class="o">:</span> <span class="nx">cabbie</span><span class="p">.</span><span class="nx">MODE_SYNC</span> <span class="p">});</span> <span class="c1">// In sync-mode</span>
+<span class="pl-s">var</span> driver <span class="pl-ko">=</span> cabbie(<span class="pl-s1"><span class="pl-pds">'</span>http://127.0.0.1:4444/wd/hub<span class="pl-pds">'</span></span>, 
+                    { browserName<span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">'</span>firefox<span class="pl-pds">'</span></span> },  <span class="pl-c"><span class="pl-pdc">//</span> With firefox</span>
+                    { mode<span class="pl-ko">:</span> cabbie.MODE_SYNC }); <span class="pl-c"><span class="pl-pdc">//</span> In sync-mode</span>
 
-<span class="kd">var</span> <span class="nx">driverAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">driverAdapters</span><span class="p">.</span><span class="nx">Cabbie</span><span class="p">(</span><span class="nx">driver</span><span class="p">);</span>
-</pre></div>
+<span class="pl-s">var</span> driverAdapter <span class="pl-ko">=</span> <span class="pl-ko">new</span> <span class="pl-enti">hodman.driverAdapters</span>.Cabbie(driver);</pre></div>
 
 <p>Should your favorite Selenium client not be available, then please request it in the issues tab or implement your own adapter by using the exposed abstract <code>DriverAdapter</code> object as base-class:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">hodman</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hodman'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> hodman <span class="pl-ko">=</span> <span class="pl-sf">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>hodman<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Inherit from DriverAdapter</span>
-<span class="kd">var</span> <span class="nx">SeleniumClientAdapter</span> <span class="o">=</span> <span class="nx">hodman</span><span class="p">.</span><span class="nx">DriverAdapter</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+<span class="pl-c"><span class="pl-pdc">//</span> Inherit from DriverAdapter</span>
+<span class="pl-s">var</span> SeleniumClientAdapter <span class="pl-ko">=</span> hodman.DriverAdapter.extend(
 
-    <span class="p">{</span> <span class="c1">// Prototype methods</span>
+    { <span class="pl-c"><span class="pl-pdc">//</span> Prototype methods</span>
 
-       <span class="c1">// Implementation</span>
+       <span class="pl-c"><span class="pl-pdc">//</span> Implementation</span>
 
-    <span class="p">}</span>
-<span class="p">);</span>
-</pre></div>
+    }
+);</pre></div>
 
 <p>Most of the methods needs to be overwritten as they trigger an error by default to make the developer aware of a missing feature. See the API-documentation for details.</p>
 
 <p>To initialize the page-object system, you need to assign the adapter to the BaseObject.DRIVER_ADAPTER property. From that point on, all page-objects will use the supplied driver-adapter to access the browser DOM.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">hodman</span><span class="p">.</span><span class="nx">BaseObject</span><span class="p">.</span><span class="nx">DRIVER_ADAPTER</span> <span class="o">=</span> <span class="nx">driverAdapter</span><span class="p">;</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>hodman.BaseObject.DRIVER_ADAPTER <span class="pl-ko">=</span> driverAdapter;</pre></div>
 
 <h2>
 <a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API-Documentation</h2>
 
 <p>Generate the documentation with following command:</p>
 
-<div class="highlight highlight-shell"><pre>npm run docs
-</pre></div>
+<div class="highlight highlight-shell"><pre>npm run docs</pre></div>
 
 <p>The documentation will be generated in the <code>docs</code> folder of the module root.</p>
 
@@ -726,8 +707,7 @@ I am in good company with this since Jason Huggins, the creator of Selenium and 
 
 <p>Run the tests with the following command:</p>
 
-<div class="highlight highlight-shell"><pre>npm run <span class="nb">test</span>
-</pre></div>
+<div class="highlight highlight-shell"><pre>npm run <span class="pl-sf">test</span></pre></div>
 
 <p>The code-coverage will be written to the <code>coverage</code> folder in the module root.</p>
 
@@ -751,7 +731,7 @@ I am in good company with this since Jason Huggins, the creator of Selenium and 
 </li>
 <li>promise: <a href="https://github.com/then/promise">https://github.com/then/promise</a>
 </li>
-<li>teddybear: <a href="https://github.com/AndreasMadsen/teddybear">https://github.com/AndreasMadsen/teddybear</a>
+<li>sleep.js: <a href="https://github.com/h2non/sleep.js">https://github.com/h2non/sleep.js</a>
 </li>
 <li>underscore: <a href="http://underscorejs.org">http://underscorejs.org</a>
 </li>
