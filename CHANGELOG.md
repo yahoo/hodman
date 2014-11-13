@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-v0.9.4 11/06/14
+v0.9.4 11/13/14
 * Bugfix in request, making sure that the returned value is always a parsed object
 
 v0.9.3 11/06/14
