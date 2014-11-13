@@ -464,7 +464,7 @@ var OrderPage = hodman.PanelObject.extend(
 				// Selects the element in the current view since the 
 				// OrderPage should not know anything about how the 
 				// table is implemented
-				"table": ".order-list", 
+				"table": "table.table-view", 
 				// ...
 			});
 	
@@ -484,7 +484,7 @@ var OrderPage = hodman.PanelObject.extend(
 	
 	// Defined on the constructor - no need for an instance
 	{
-		SELECTOR: "table.table-view"
+		SELECTOR: "div.page-content"
 	}
 );
 ```
