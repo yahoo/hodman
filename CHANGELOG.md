@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+v0.9.5 11/19/14
+* Bugfix to check the url first before determining the root-element
+
 v0.9.4 11/13/14
 * Bugfix in request, making sure that the returned value is always a parsed object
 
