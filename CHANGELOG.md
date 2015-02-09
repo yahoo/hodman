@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+v0.9.6
+* Add getElements method to base page-object
+
 v0.9.5 11/19/14
 * Bugfix to check the url first before determining the root-element
 
