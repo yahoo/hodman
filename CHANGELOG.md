@@ -1,8 +1,13 @@
 CHANGELOG
 =========
 
-v0.9.6
+v0.10.0
 * Add getElements method to base page-object
+* Add devicePixelRatio support for retina displays
+* Fixes for Chrome bugs:
+  * Calculate devicePixelRatio whenever possible.
+  * Scroll-offset is subtracted from element-offset for view-port screenshots
+  * Scroll to top of element when taking screenshot for view-port screenshots
 
 v0.9.5 11/19/14
 * Bugfix to check the url first before determining the root-element
