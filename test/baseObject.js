@@ -1,5 +1,5 @@
 /*global describe, it, before, beforeEach, after, afterEach */
-// Copyright 2014, Yahoo! Inc.
+// Copyright 2014-2015, Yahoo! Inc.
 // Copyrights licensed under the Mit License. See the accompanying LICENSE file for terms.
 
 var BaseObject = require('..').BaseObject;
@@ -44,7 +44,5 @@ describe('Base-Object', function () {
 		it('should be convertible to string', function () {
 			expect(this.instance.toString()).to.equal("[" + this.Class.TYPE + "::" + this.instance.NAME + "(" + this.instance._uniqueId + ")" + "]")
 		});
-
 	});
-
 });

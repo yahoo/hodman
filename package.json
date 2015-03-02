@@ -1,42 +1,45 @@
 {
-  "name": "hodman",
-  "version": "0.10.0",
-  "description": "Selenium object library including page-objects",
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {
-    "test": "istanbul cover -- _mocha --reporter spec",
-    "docs": "yuidoc ."
-  },
-  "homepage": "https://github.com/yahoo/hodman",
-  "bugs": "https://github.com/yahoo/hodman/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yahoo/hodman.git"
-  },
-  "keywords": [
-    "page-objects",
-    "testing",
-    "selenium",
-    "preceptor",
-    "hodman"
-  ],
-  "author": {
-    "name": "Marcel Erz",
-    "email": "erz@yahoo-inc.com"
-  },
-  "dependencies": {
-    "pngjs-image": "~0.9.3",
-    "preceptor-core": "~0.9.0",
-    "promise": "6.0.0",
-    "sleep.js": "0.1.0",
-    "underscore": "1.7.0"
-  },
-  "devDependencies": {
-    "chai": "1.9.1",
-    "coveralls": "2.11.2",
-    "istanbul": "0.3.2",
-    "mocha": "1.21.4",
-    "yuidocjs": "0.3.50"
-  }
+	"name": "hodman",
+	"version": "0.10.0",
+	"description": "Selenium object library including page-objects",
+	"license": "MIT",
+	"main": "index.js",
+	"homepage": "https://github.com/yahoo/hodman",
+	"bugs": "https://github.com/yahoo/hodman/issues",
+	"author": {
+		"name": "Marcel Erz",
+		"email": "erz@yahoo-inc.com",
+		"url": "http://www.marcelerz.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yahoo/hodman.git"
+	},
+	"keywords": [
+		"page-objects",
+		"testing",
+		"selenium",
+		"preceptor",
+		"hodman"
+	],
+	"scripts": {
+		"test": "istanbul cover -- _mocha --reporter spec",
+		"docs": "yuidoc ."
+	},
+	"dependencies": {
+		"pngjs-image": "~0.9.3",
+		"preceptor-core": "~0.10.0",
+		"promise": "6.0.0",
+		"sleep.js": "0.1.0",
+		"underscore": "1.7.0"
+	},
+	"devDependencies": {
+		"chai": "1.9.2",
+		"coveralls": "2.11.2",
+		"istanbul": "0.3.2",
+		"mocha": "1.21.4",
+		"sinon": "1.12.2",
+		"sinon-chai": "2.7.0",
+		"yuidocjs": "0.3.50"
+	}
 }
