@@ -3,16 +3,20 @@ Hodman
 
 Selenium object library including page-objects.
 
-[![Build Status](https://secure.travis-ci.org/yahoo/hodman.png)](http://travis-ci.org/yahoo/hodman)
-[![npm version](https://badge.fury.io/js/hodman.svg)](http://badge.fury.io/js/hodman)
+[![Build Status](https://img.shields.io/travis/yahoo/hodman.svg)](http://travis-ci.org/yahoo/hodman)
+[![Coveralls Coverage](https://img.shields.io/coveralls/yahoo/hodman.svg)](https://coveralls.io/r/yahoo/hodman)
+[![Code Climate Grade](https://img.shields.io/codeclimate/github/yahoo/hodman.svg)](https://codeclimate.com/github/yahoo/hodman)
 
-[![NPM](https://nodei.co/npm/hodman.png?downloads=true)](https://nodei.co/npm/hodman/)
+[![NPM version](https://badge.fury.io/js/hodman.svg)](https://www.npmjs.com/package/hodman)
+[![NPM License](https://img.shields.io/npm/l/blink-diff.svg)](https://www.npmjs.com/package/hodman)
 
+[![NPM](https://nodei.co/npm/hodman.png?downloads=true&stars=true)](https://www.npmjs.com/package/hodman)
+[![NPM](https://nodei.co/npm-dl/hodman.png?months=3&height=2)](https://www.npmjs.com/package/hodman)
 
-[API-Documentation](http://yahoo.github.io/hodman/docs/)
+[![Coverage Report](https://img.shields.io/badge/Coverage_Report-Available-blue.svg)](http://yahoo.github.io/hodman/coverage/lcov-report/)
+[![API Documentation](https://img.shields.io/badge/API_Documentation-Available-blue.svg)](http://yahoo.github.io/hodman/docs/)
 
-[Coverage Report](http://yahoo.github.io/hodman/coverage/lcov-report/)
-
+[![Gitter Support](https://img.shields.io/badge/Support-Gitter_IM-yellow.svg)](https://gitter.im/preceptorjs/support)
 
 **Table of Contents**
 * [Installation](#installation)
