@@ -8,7 +8,7 @@ Selenium object library including page-objects.
 [![Code Climate Grade](https://img.shields.io/codeclimate/github/yahoo/hodman.svg)](https://codeclimate.com/github/yahoo/hodman)
 
 [![NPM version](https://badge.fury.io/js/hodman.svg)](https://www.npmjs.com/package/hodman)
-[![NPM License](https://img.shields.io/npm/l/blink-diff.svg)](https://www.npmjs.com/package/hodman)
+[![NPM License](https://img.shields.io/npm/l/hodman.svg)](https://www.npmjs.com/package/hodman)
 
 [![NPM](https://nodei.co/npm/hodman.png?downloads=true&stars=true)](https://www.npmjs.com/package/hodman)
 [![NPM](https://nodei.co/npm-dl/hodman.png?months=3&height=2)](https://www.npmjs.com/package/hodman)
