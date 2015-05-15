@@ -6,7 +6,8 @@ module.exports = {
 	// Driver-adapters
 	DriverAdapter: require('./lib/driverAdapter/driverAdapter'),
 	driverAdapters: {
-		"Cabbie": require('./lib/driverAdapter/cabbieAdapter')
+		"Cabbie": require('./lib/driverAdapter/cabbieAdapter'),
+		"Taxi": require('./lib/driverAdapter/taxiAdapter')
 	},
 
 	// Page-Objects

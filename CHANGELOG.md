@@ -5,6 +5,7 @@ v0.10.1
 * Add support for Node 0.12
 * Add support for IO.js
 * Add support for css selectors for getElement/getElements/hasElement as fall-back
+* Add support for Taxi
 
 v0.10.0 - 02/24/15
 * Add getElements method to base page-object

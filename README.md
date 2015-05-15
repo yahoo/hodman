@@ -63,17 +63,17 @@ var hodman = require('hodman');
 The following example sets-up the page-object system and creates an example page-object for a login page.
 
 ```javascript
-var cabbie = require('cabbie');
+var taxi = require('taxi');
 var hodman = require('hodman');
 
-// Initialize the selenium client. In this case, it is "cabbie". 
-var driver = cabbie('http://127.0.0.1:4444/wd/hub', 
+// Initialize the selenium client. In this case, it is "taxi". 
+var driver = taxi('http://127.0.0.1:4444/wd/hub', 
                     { browserName: 'firefox' },  // With firefox
-                    { mode: cabbie.MODE_SYNC }); // In sync-mode
+                    { mode: taxi.MODE_SYNC }); // In sync-mode
 
 // Create driver-adapter for the page-objects to have a consistent interface 
 // for all supported selenium clients.
-var driverAdapter = new hodman.driverAdapters.Cabbie(driver);
+var driverAdapter = new hodman.driverAdapters.Taxi(driver);
 
 // Assign the driver-adapter to the page-object sub-system
 hodman.BaseObject.DRIVER_ADAPTER = driverAdapter;
@@ -547,19 +547,20 @@ I am in good company with this since Jason Huggins, the creator of Selenium and 
 The driver-adapter will give the page-objects a consistent way of accessing low-level Selenium elements and functions.
 
 The following adapters for Selenium clients are available:
-* ```cabbie``` (https://github.com/ForbesLindesay/cabbie)
+* ```taxi``` (https://github.com/preceptorjs/taxi)
+* ```cabbie``` (https://github.com/ForbesLindesay/taxi / https://github.com/marcelerz/cabbie)
 
 Hodman exposes all standard driver-adapter with ```hodman.driverAdapters```:
 
 ```javascript
-var cabbie = require('cabbie');
+var taxi = require('taxi');
 var hodman = require('hodman');
 
-var driver = cabbie('http://127.0.0.1:4444/wd/hub', 
+var driver = taxi('http://127.0.0.1:4444/wd/hub', 
                     { browserName: 'firefox' },  // With firefox
-                    { mode: cabbie.MODE_SYNC }); // In sync-mode
+                    { mode: taxi.MODE_SYNC }); // In sync-mode
 
-var driverAdapter = new hodman.driverAdapters.Cabbie(driver);
+var driverAdapter = new hodman.driverAdapters.Taxi(driver);
 ```
 
 Should your favorite Selenium client not be available, then please request it in the issues tab or implement your own adapter by using the exposed abstract ```DriverAdapter``` object as base-class:
@@ -621,6 +622,10 @@ The following third-party libraries are used by this module:
 * istanbul: https://github.com/gotwarlost/istanbul
 * mocha: https://github.com/visionmedia/mocha
 * yuidocjs: https://github.com/yui/yuidoc
+
+###Optional-Dependecies:
+* taxi: https://github.com/preceptorjs/taxi
+* cabbie-alpha: https://github.com/ForbesLindesay/cabbie / https://github.com/marcelerz/cabbie
 
 ##License
 
