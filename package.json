@@ -1,6 +1,6 @@
 {
 	"name": "hodman",
-	"version": "0.10.0",
+	"version": "0.10.1",
 	"description": "Selenium object library including page-objects",
 	"license": "MIT",
 	"main": "index.js",
@@ -41,5 +41,8 @@
 		"sinon": "1.12.2",
 		"sinon-chai": "2.7.0",
 		"yuidocjs": "0.3.50"
+	},
+	"optionalDependencies": {
+		"taxi": "*"
 	}
 }
